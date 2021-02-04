@@ -1,5 +1,5 @@
 function My() {
-    return <div>My</div>
+  return <div>My</div>;
 }
 
 export default My;
