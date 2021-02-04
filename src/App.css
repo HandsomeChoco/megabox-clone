@@ -1,119 +1,131 @@
 :root {
-    --bg-color: white;
-    --theme-color: rgb(19, 13, 55);
-    --border-color: #d6d6d6;
+  --bg-color: white;
+  --theme-color: rgb(19, 13, 55);
+  --border-color: #d6d6d6;
 }
 
 .container {
-    background-color: var(--theme-color);
-    width: 100%;
-    height: 100vh;
+  background-color: var(--theme-color);
+  width: 100%;
+  height: 100vh;
 }
 
 .bottomNavi {
-    display: flex;
-    position: fixed;
-    justify-content: space-around;
-    bottom: 0;
-    width: 100%;
-    max-width: 64rem;
-    height: 50px;
-    background-color: var(--bg-color);
-    border-top: var(--border-color);
-    
+  display: flex;
+  position: fixed;
+  justify-content: space-around;
+  bottom: 0;
+  width: 100%;
+  max-width: 64rem;
+  height: 50px;
+  background-color: var(--bg-color);
+  border-top: var(--border-color);
 }
 
 .bottomNaviBtn {
-    background-color: var(--bg-color);
-    width: 100%;
-    border: none;
-    padding: 0px;
+  background-color: var(--bg-color);
+  width: 100%;
+  border: none;
+  padding: 0px;
 }
 
 .topNavi {
-    display: flex;
-    background-color: var(--theme-color);
-    height: 50px;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  background-color: var(--theme-color);
+  height: 50px;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .sideBar {
-    position: fixed;
-    top: 0px;
-    right: 0px;
-    height: 100vh;
-    width: 20rem;
-    background-color: var(--bg-color);
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  height: 100vh;
+  width: 20rem;
+  background-color: var(--bg-color);
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.sideBar-hidden {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  height: 100vh;
+  width: 0px;
+  background-color: var(--bg-color);
+  overflow: hidden;
+  transition: 0.3s;
 }
 
 .sideBar-Header {
-    background-color: var(--theme-color);
-    color: var(--bg-color);
-    padding: 1rem;
+  background-color: var(--theme-color);
+  color: var(--bg-color);
+  padding: 1rem;
 }
 
 .sideBar-Header-Top {
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 4rem;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 4rem;
+  align-items: center;
 }
 
 .sideBar-Header-Bottom {
-    color: var(--border-color);
-    padding: 0 1rem 0 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  color: var(--border-color);
+  padding: 0 1rem 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .sideBar-Shop {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    border-bottom: 1px solid var(--border-color);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .sideBar-Shop-Item {
-    flex-basis: calc(33.3%);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  flex-basis: calc(33.3%);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .sideBar-Shop-Item-IconWrapper {
-    display: flex;
-    border: 2px solid var(--border-color);
-    margin: 1rem 1rem 5px 1rem;
-    border-radius: 100%;
-    width: 60px;
-    height: 60px;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  border: 2px solid var(--border-color);
+  margin: 1rem 1rem 5px 1rem;
+  border-radius: 100%;
+  width: 60px;
+  height: 60px;
+  justify-content: center;
+  align-items: center;
 }
 
 .sideBar-Shop-Item-IconWrapper > svg {
-    font-size: 30px;
+  font-size: 30px;
 }
 
 .sideBar-Shop-Item-Text {
-    font-size: 14px;
-    margin-bottom: 1rem;
+  font-size: 14px;
+  margin-bottom: 1rem;
 }
 
 .sideBar-Menu-Item {
-    padding: 1rem;
-    border-bottom: 1px solid var(--border-color);
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .sideBar-Notice {
-    display: flex;
-    align-items: center;
-    padding: 1rem;
-    font-size: 13px;
-    color: rgb(0, 204, 204);
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  font-size: 13px;
+  color: rgb(0, 204, 204);
 }
