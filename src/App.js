@@ -10,14 +10,14 @@ import Booking from './components/screen/Booking';
 import MobileOrder from './components/screen/MobileOrder';
 import My from './components/screen/My';
 
-import { useAppStateContext } from './context/AppContext';
+import AppContext, { useAppStateContext } from './context/AppContext';
 
 function App() {
   // eslint-disable-next-line
-  const [state, setState] = useAppStateContext();
-
+  const state = useAppStateContext();
+  
   const Screen = () => {
-    switch (state.current) {
+    switch (state.currentScreen) {
       case 'home' : return <Home/>
       case 'store' : return <Store/>
       case 'booking' : return <Booking/>
@@ -29,12 +29,14 @@ function App() {
 
   return (
     <>
-      <Container>
-        <TopNavi/>
-          {Screen()}
-        <SideBar/>
-        <BottomNavi/>
-      </Container>
+      <AppContext>
+        <Container>
+          <TopNavi/>
+          <SideBar/>
+          <BottomNavi/>
+        </Container>
+      </AppContext>
+     
     </>
   );
 }
