@@ -1,4 +1,5 @@
 
+import React from 'react';
 import './App.css';
 import Container from './components/Container';
 import BottomNavi from './components/BottomNavi';
@@ -10,14 +11,18 @@ import Booking from './components/screen/Booking';
 import MobileOrder from './components/screen/MobileOrder';
 import My from './components/screen/My';
 
-import AppContext, { useAppStateContext } from './context/AppContext';
+import { useAppStateContext } from './context/AppContext';
+import { useCallback } from 'react';
 
 function App() {
-  // eslint-disable-next-line
-  const state = useAppStateContext();
   
-  const Screen = () => {
-    switch (state.currentScreen) {
+  const state = useAppStateContext();
+  console.log('App', state.screen)
+
+  
+  const Screen = useCallback(() => {
+    console.log('Screen function')
+    switch (state.screen) {
       case 'home' : return <Home/>
       case 'store' : return <Store/>
       case 'booking' : return <Booking/>
@@ -25,20 +30,19 @@ function App() {
       case 'my' : return <My/>
       default : throw new Error(`Unhandled current screen type: ${state.current}`)
     }
-  };
+    // eslint-disable-next-line
+  }, [state.screen]);
 
   return (
     <>
-      <AppContext>
-        <Container>
-          <TopNavi/>
-          <SideBar/>
-          <BottomNavi/>
-        </Container>
-      </AppContext>
-     
+      <Container>
+        <TopNavi/>
+        <SideBar/>
+        <BottomNavi/>
+        {Screen()}
+      </Container>
     </>
   );
 }
 
-export default App;
+export default React.memo(App);
