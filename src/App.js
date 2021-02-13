@@ -1,4 +1,3 @@
-
 import React from 'react';
 import './App.css';
 import Container from './components/Container';
@@ -10,35 +9,35 @@ import Store from './components/screen/Store';
 import Booking from './components/screen/Booking';
 import MobileOrder from './components/screen/MobileOrder';
 import My from './components/screen/My';
-
 import { useAppStateContext } from './context/AppContext';
-import { useCallback } from 'react';
-
 function App() {
-  
   const state = useAppStateContext();
-  console.log('App', state.screen)
+  console.log('App');
 
-  
-  const Screen = useCallback(() => {
-    console.log('Screen function')
+  const Screen = () => {
+    console.log('Screen function');
     switch (state.screen) {
-      case 'home' : return <Home/>
-      case 'store' : return <Store/>
-      case 'booking' : return <Booking/>
-      case 'mobileOrder' : return <MobileOrder/>
-      case 'my' : return <My/>
-      default : throw new Error(`Unhandled current screen type: ${state.current}`)
+      case 'home':
+        return <Home />;
+      case 'store':
+        return <Store />;
+      case 'booking':
+        return <Booking />;
+      case 'mobileOrder':
+        return <MobileOrder />;
+      case 'my':
+        return <My />;
+      default:
+        throw new Error(`Unhandled current screen type: ${state.current}`);
     }
-    // eslint-disable-next-line
-  }, [state.screen]);
+  };
 
   return (
     <>
       <Container>
-        <TopNavi/>
-        <SideBar/>
-        <BottomNavi/>
+        <TopNavi />
+        <SideBar />
+        <BottomNavi />
         {Screen()}
       </Container>
     </>
