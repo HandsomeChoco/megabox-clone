@@ -2,10 +2,7 @@ import { AiFillHome, AiFillShopping } from 'react-icons/ai';
 import { FaTicketAlt } from 'react-icons/fa';
 import { GiPopcorn } from 'react-icons/gi';
 import { BsFillPersonFill } from 'react-icons/bs';
-import {
-  useAppDispatchContext,
-  useAppStateContext,
-} from '../context/AppContext';
+import { useAppDispatchContext } from '../context/AppContext';
 import React, { useCallback, useMemo } from 'react';
 
 const itemInfo = [
