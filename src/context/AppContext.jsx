@@ -5,13 +5,14 @@ const AppStateContext = React.createContext();
 const AppDispatchContext = React.createContext();
 
 const initialState = {
-  currentScreen: 'home'
+  screen: 'home',
+  isSideBarHidden: true
 }
 
 
 const AppContext = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-
+  console.log(state, 'app context')
   return (
     <AppStateContext.Provider value={state}>
       <AppDispatchContext.Provider value={dispatch}>
