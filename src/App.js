@@ -15,7 +15,6 @@ function App() {
   console.log('App');
 
   const Screen = () => {
-    console.log('Screen function');
     switch (state.screen) {
       case 'home':
         return <Home />;

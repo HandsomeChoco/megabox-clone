@@ -1,4 +1,4 @@
-import React, { useContext, useReducer } from "react";
+import React, { useContext, useReducer } from 'react';
 import reducer from '../hooks/reducer/reducer';
 
 const AppStateContext = React.createContext();
@@ -6,13 +6,11 @@ const AppDispatchContext = React.createContext();
 
 const initialState = {
   screen: 'home',
-  isSideBarHidden: true
-}
-
+  isSideBarHidden: true,
+};
 
 const AppContext = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  console.log(state, 'app context')
   return (
     <AppStateContext.Provider value={state}>
       <AppDispatchContext.Provider value={dispatch}>
@@ -25,7 +23,7 @@ const AppContext = ({ children }) => {
 export const useAppStateContext = () => {
   const state = useContext(AppStateContext);
   if (!state) {
-    throw new Error("Cannot find AppStateContext");
+    throw new Error('Cannot find AppStateContext');
   }
   return state;
 };
@@ -33,7 +31,7 @@ export const useAppStateContext = () => {
 export const useAppDispatchContext = () => {
   const state = useContext(AppDispatchContext);
   if (!state) {
-    throw new Error("Cannot find AppDispatchContext");
+    throw new Error('Cannot find AppDispatchContext');
   }
   return state;
 };
