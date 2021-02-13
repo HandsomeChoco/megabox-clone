@@ -1,7 +1,10 @@
-function reducer(state, action) {
-    console.log(state, action);
+const reducer = (state, action) => {
     switch(action.type) {
+      case 'SET_SCREEN' : return {
+          ...state, screen: action.screen
+      }
       
+      default : throw new Error(`Unhandled action type: ${action.type}`)
     }
 }
 
