@@ -8,8 +8,10 @@ import { BsPerson } from 'react-icons/bs';
 import { IoFastFoodOutline, IoMegaphoneOutline } from 'react-icons/io5';
 import { MdKeyboardArrowDown } from 'react-icons/md';
 import '../App.css';
+import { useAppStateContext } from '../context/AppContext';
 
-const SideBarHeader = () => {
+const SideBarHeader = React.memo(() => {
+    console.log('SideBarHeader');
     return (
         <div className='sideBar-Header'>
             <div className='sideBar-Header-Top'>
@@ -33,7 +35,7 @@ const SideBarHeader = () => {
             </div>
         </div>
     );
-}
+})
 
 const sideBarShopItem = [
     { element: <GiFilmSpool/>, text: '영화별 예매' }, 
@@ -44,7 +46,8 @@ const sideBarShopItem = [
     { element: <IoFastFoodOutline/>, text: '모바일 오더' }
 ];
 
-const SideBarShopItem = ({ element, text}) => {
+const SideBarShopItem = React.memo(({ element, text}) => {
+    console.log('SideBarShopItem')
     return(
         <div className='sideBar-Shop-Item'>
             <div className='sideBar-Shop-Item-IconWrapper'>
@@ -53,9 +56,10 @@ const SideBarShopItem = ({ element, text}) => {
             <div className='sideBar-Shop-Item-Text'>{text}</div>
         </div>
     )
-}
+})
 
-const SideBarShop = () => {
+const SideBarShop = React.memo(() => {
+    console.log('SideBarShop')
     return(
         <div className='sideBar-Shop'>
             {sideBarShopItem.map((items, index) => 
@@ -67,9 +71,10 @@ const SideBarShop = () => {
             )}
         </div>
     )
-}
+});
 
-const SideBarMenu = () => {
+const SideBarMenu = React.memo(() => {
+    console.log('SideBarMenu')
     return(
         <div className='sideBar-Menu'>
             <div className='sideBar-Menu-Item'><span>이벤트</span></div>
@@ -88,18 +93,22 @@ const SideBarMenu = () => {
             <div className='sideBar-Menu-Item'><span>고객센터</span></div>
         </div>
     );
-}
+})
 
-const SideBarNotice = () => { 
+const SideBarNotice = React.memo(() => { 
+    console.log('SideBarNotice')
     return(
         <div className='sideBar-Notice'>
             <IoMegaphoneOutline/>&nbsp;[공지] 메가박스 개인정보 처리 방침 변경 안내
         </div>
     )
-}
+})
+
 const SideBar = () => {
+    console.log('SideBar');
+    const state = useAppStateContext();
     return(
-        <div className='sideBar'>
+        <div className={state.isSideBarHidden ? 'sideBar-hidden' : 'sideBar'}>
             <SideBarHeader/>
             <SideBarShop/>
             <SideBarMenu/>
@@ -108,4 +117,4 @@ const SideBar = () => {
     );
 }
 
-export default SideBar;
+export default React.memo(SideBar);

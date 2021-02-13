@@ -1,3 +1,4 @@
+import React from 'react';
 import { RiTicket2Line } from 'react-icons/ri';
 import { AiOutlineBell } from 'react-icons/ai';
 import { GoThreeBars } from 'react-icons/go';
@@ -8,6 +9,7 @@ const iconStyle = {
 }
 
 const TopNavi = () => {
+    console.log('TopNavi')
     return (
         <div className='topNavi'>
             <div>
@@ -26,4 +28,4 @@ const TopNavi = () => {
     );
 }
 
-export default TopNavi;
+export default React.memo(TopNavi);
