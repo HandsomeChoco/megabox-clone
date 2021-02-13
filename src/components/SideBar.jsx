@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { IoMdClose } from 'react-icons/io';
 import { RiHome2Line, RiTicketLine } from 'react-icons/ri';
 import { BiBookAdd, BiMovie, BiShoppingBag } from 'react-icons/bi';
@@ -8,10 +8,21 @@ import { BsPerson } from 'react-icons/bs';
 import { IoFastFoodOutline, IoMegaphoneOutline } from 'react-icons/io5';
 import { MdKeyboardArrowDown } from 'react-icons/md';
 import '../App.css';
-import { useAppStateContext } from '../context/AppContext';
+import {
+  useAppDispatchContext,
+  useAppStateContext,
+} from '../context/AppContext';
 
 const SideBarHeader = React.memo(() => {
   console.log('SideBarHeader');
+
+  const dispatch = useAppDispatchContext();
+  const toggleSideBar = () => {
+    dispatch({
+      type: 'TOGGLE_SIDEBAR',
+    });
+  };
+
   return (
     <div className="sideBar-Header">
       <div className="sideBar-Header-Top">
@@ -20,7 +31,7 @@ const SideBarHeader = React.memo(() => {
         </span>
         <span>
           <RiHome2Line style={{ fontSize: 25, paddingRight: '0.5rem' }} />
-          <IoMdClose style={{ fontSize: 25 }} />
+          <IoMdClose style={{ fontSize: 25 }} onClick={toggleSideBar} />
         </span>
       </div>
       <div className="sideBar-Header-Bottom">
@@ -126,8 +137,10 @@ const SideBarNotice = React.memo(() => {
 const SideBar = () => {
   console.log('SideBar');
   const state = useAppStateContext();
+  const { isSideBarHidden } = state;
+
   return (
-    <div className={state.isSideBarHidden ? 'sideBar-hidden' : 'sideBar'}>
+    <div className={isSideBarHidden ? 'sideBar-hidden' : 'sideBar'}>
       <SideBarHeader />
       <SideBarShop />
       <SideBarMenu />
