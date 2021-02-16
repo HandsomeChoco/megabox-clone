@@ -10,6 +10,11 @@ const reducer = (state, action) => {
         ...state,
         isSideBarHidden: !state.isSideBarHidden,
       };
+    case 'TOGGLE_LOGIN_WINDOW':
+      return {
+        ...state,
+        isLoginWindowHidden: !state.isLoginWindowHidden,
+      };
     default:
       throw new Error(`Unhandled action type: ${action.type}`);
   }
