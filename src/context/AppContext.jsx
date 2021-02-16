@@ -7,6 +7,7 @@ const AppDispatchContext = React.createContext();
 const initialState = {
   screen: 'home',
   isSideBarHidden: true,
+  isLoginWindowHidden: true,
 };
 
 const AppContext = ({ children }) => {
