@@ -10,6 +10,8 @@ import Booking from './components/screen/Booking';
 import MobileOrder from './components/screen/MobileOrder';
 import My from './components/screen/My';
 import { useAppStateContext } from './context/AppContext';
+import Login from './components/screen/Login';
+
 function App() {
   const state = useAppStateContext();
   console.log('App');
@@ -38,6 +40,7 @@ function App() {
         <SideBar />
         <BottomNavi />
         {Screen()}
+        <Login/>
       </Container>
     </>
   );
