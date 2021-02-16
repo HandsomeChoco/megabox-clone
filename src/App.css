@@ -131,3 +131,30 @@
   font-size: 13px;
   color: rgb(0, 204, 204);
 }
+
+.login {
+  background-color: var(--bg-color);
+  transition: 0.5s;
+  width: calc(100vw - 2rem);
+  height: calc(100vh - 2rem);
+  padding: 1rem;
+  position: absolute;
+  top: 0;
+}
+
+.login-top {
+  display: flex;
+  align-items: center;
+}
+
+.login-top-title {
+  flex-basis: calc(100% - 1rem);
+  text-align: center;
+}
+.login-top-title > h3 {
+  margin: 0px;
+}
+.login-top-icon {
+  width: 25px;
+  height: 25px;
+}
