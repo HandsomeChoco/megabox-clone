@@ -15,6 +15,7 @@ const reducer = (state, action) => {
         ...state,
         isLoginWindowHidden: !state.isLoginWindowHidden,
       };
+
     default:
       throw new Error(`Unhandled action type: ${action.type}`);
   }
