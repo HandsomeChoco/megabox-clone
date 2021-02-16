@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { IoMdClose } from 'react-icons/io';
 import { RiHome2Line, RiTicketLine } from 'react-icons/ri';
 import { BiBookAdd, BiMovie, BiShoppingBag } from 'react-icons/bi';
@@ -138,7 +138,7 @@ const SideBar = () => {
   console.log('SideBar');
   const state = useAppStateContext();
   const { isSideBarHidden } = state;
-
+  
   return (
     <div className={isSideBarHidden ? 'sideBar-hidden' : 'sideBar'}>
       <SideBarHeader />
