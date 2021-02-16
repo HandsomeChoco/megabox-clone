@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { IoMdClose } from 'react-icons/io';
 import { RiHome2Line, RiTicketLine } from 'react-icons/ri';
 import { BiBookAdd, BiMovie, BiShoppingBag } from 'react-icons/bi';
@@ -17,17 +17,27 @@ const SideBarHeader = React.memo(() => {
   console.log('SideBarHeader');
 
   const dispatch = useAppDispatchContext();
+
   const toggleSideBar = () => {
     dispatch({
       type: 'TOGGLE_SIDEBAR',
     });
   };
 
+  const toggleLoginWindow = useCallback(() => {
+    dispatch({
+      type: 'TOGGLE_LOGIN_WINDOW',
+    });
+  });
+
   return (
     <div className="sideBar-Header">
       <div className="sideBar-Header-Top">
         <span>
-          <a href="/">로그인</a> 후 이용하세요!
+          <a href="#" onClick={toggleLoginWindow}>
+            로그인
+          </a>{' '}
+          후 이용하세요!
         </span>
         <span>
           <RiHome2Line style={{ fontSize: 25, paddingRight: '0.5rem' }} />
@@ -138,7 +148,7 @@ const SideBar = () => {
   console.log('SideBar');
   const state = useAppStateContext();
   const { isSideBarHidden } = state;
-  
+
   return (
     <div className={isSideBarHidden ? 'sideBar-hidden' : 'sideBar'}>
       <SideBarHeader />
