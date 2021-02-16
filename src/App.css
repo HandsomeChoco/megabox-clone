@@ -38,7 +38,7 @@
 }
 
 .sideBar {
-  z-index:2;
+  z-index: 2;
   position: fixed;
   top: 0px;
   right: 0px;
@@ -133,13 +133,26 @@
 }
 
 .login {
+  z-index: 3;
   background-color: var(--bg-color);
   transition: 0.5s;
   width: calc(100vw - 2rem);
   height: calc(100vh - 2rem);
   padding: 1rem;
   position: absolute;
-  top: 0;
+  bottom: 0;
+}
+
+.loginHidden {
+  z-index: 3;
+  background-color: var(--bg-color);
+  transition: 0.5s;
+  width: calc(100vw - 2rem);
+  height: 0rem;
+  padding: 0rem;
+  overflow-y: hidden;
+  position: absolute;
+  bottom: 0;
 }
 
 .login-top {
