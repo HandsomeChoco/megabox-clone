@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, {  } from 'react';
 import { IoMdClose } from 'react-icons/io';
 import {
   useAppDispatchContext,
@@ -11,14 +11,14 @@ function Login() {
   const dispatch = useAppDispatchContext();
   const { isLoginWindowHidden } = state;
 
-  const toggleLoginWindow = useCallback(() => {
+  const toggleLoginWindow = () => {
     dispatch({
       type: 'TOGGLE_LOGIN_WINDOW',
     });
-  });
+  };
 
   return (
-    <div className={isLoginWindowHidden ? 'loginHidden' : 'login'}>
+    <div className={isLoginWindowHidden ? 'login loginHidden' : 'login'}>
       <div className="login-top">
         <div className="login-top-title">
           <h3>로그인</h3>
