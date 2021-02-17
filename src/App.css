@@ -5,6 +5,7 @@
 }
 
 .container {
+  position: relative;
   background-color: var(--theme-color);
   width: 100%;
   height: 100vh;
@@ -39,7 +40,7 @@
 
 .sideBar {
   z-index: 2;
-  position: fixed;
+  position: absolute;
   top: 0px;
   right: 0px;
   height: 100vh;
@@ -48,17 +49,13 @@
   overflow-x: hidden;
   overflow-y: auto;
   transition: 0.3s;
+  transform: scaleX(1);
+  transform-origin: right top;
 }
 
 .sideBar-hidden {
-  position: fixed;
-  top: 0px;
-  right: 0px;
-  height: 100vh;
-  width: 0px;
-  background-color: var(--bg-color);
-  overflow: hidden;
-  transition: 0.3s;
+  transform-origin: right top;
+  transform: scaleX(0);
 }
 
 .sideBar-Header {
@@ -136,23 +133,18 @@
   z-index: 3;
   background-color: var(--bg-color);
   transition: 0.5s;
-  width: calc(100vw - 2rem);
+  width: calc(100% - 2rem);
   height: calc(100vh - 2rem);
   padding: 1rem;
   position: absolute;
   bottom: 0;
+  transform-origin: right bottom;
+  transform: scaleY(1);
 }
 
 .loginHidden {
-  z-index: 3;
-  background-color: var(--bg-color);
-  transition: 0.5s;
-  width: calc(100vw - 2rem);
-  height: 0rem;
-  padding: 0rem;
-  overflow-y: hidden;
-  position: absolute;
-  bottom: 0;
+  transform-origin: right bottom;
+  transform: scaleY(0);
 }
 
 .login-top {
