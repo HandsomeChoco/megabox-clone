@@ -143,6 +143,7 @@
 }
 
 .loginHidden {
+  z-index: 3;
   transform-origin: right bottom;
   transform: scaleY(0);
 }
