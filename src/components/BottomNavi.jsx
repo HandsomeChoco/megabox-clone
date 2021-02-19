@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { AiFillHome, AiFillShopping } from 'react-icons/ai';
 import { FaTicketAlt } from 'react-icons/fa';
 import { GiPopcorn } from 'react-icons/gi';
@@ -9,7 +10,7 @@ const itemInfo = [
   { icon: <AiFillHome />, text: '홈', current: 'home' },
   { icon: <AiFillShopping />, text: '스토어', current: 'store' },
   { icon: <FaTicketAlt />, text: '예매', current: 'booking' },
-  { icon: <GiPopcorn />, text: '모바일오더', current: 'mobileOrder' },
+  { icon: <GiPopcorn />, text: '모바일오더', current: 'mobile_order' },
   { icon: <BsFillPersonFill />, text: 'MY', current: 'my' },
 ];
 
@@ -27,12 +28,14 @@ const BottomItem = React.memo(({ text, icon, current }) => {
   }, []);
 
   return (
-    <button className="bottomNaviBtn" onClick={setScreen} name={current}>
-      <div>
-        <div>{icon}</div>
-        <div>{text}</div>
-      </div>
-    </button>
+    <Link to={current} className="bottomNaviAnchor">
+      <button className="bottomNaviBtn" onClick={setScreen} name={current}>
+        <div>
+          <div>{icon}</div>
+          <div>{text}</div>
+        </div>
+      </button>
+    </Link>
   );
 });
 
