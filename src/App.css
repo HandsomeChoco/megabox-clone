@@ -43,6 +43,13 @@
   justify-content: space-between;
 }
 
+.topNavi > div {
+  height: 25px;
+}
+.topNavi > div:nth-child(1) {
+  padding-right: calc(2rem + 1px);
+}
+
 .sideBar {
   z-index: 2;
   position: absolute;
