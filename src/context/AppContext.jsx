@@ -5,7 +5,6 @@ const AppStateContext = React.createContext();
 const AppDispatchContext = React.createContext();
 
 const initialState = {
-  screen: 'home',
   isSideBarHidden: true,
   isLoginWindowHidden: true,
 };

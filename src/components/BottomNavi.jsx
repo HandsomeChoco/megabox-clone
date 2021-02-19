@@ -7,29 +7,19 @@ import { useAppDispatchContext } from '../context/AppContext';
 import React, { useCallback, useMemo } from 'react';
 
 const itemInfo = [
-  { icon: <AiFillHome />, text: '홈', current: 'home' },
-  { icon: <AiFillShopping />, text: '스토어', current: 'store' },
-  { icon: <FaTicketAlt />, text: '예매', current: 'booking' },
-  { icon: <GiPopcorn />, text: '모바일오더', current: 'mobile_order' },
-  { icon: <BsFillPersonFill />, text: 'MY', current: 'my' },
+  { icon: <AiFillHome />, text: '홈', url: '' },
+  { icon: <AiFillShopping />, text: '스토어', url: 'store' },
+  { icon: <FaTicketAlt />, text: '예매', url: 'booking' },
+  { icon: <GiPopcorn />, text: '모바일오더', url: 'mobile_order' },
+  { icon: <BsFillPersonFill />, text: 'MY', url: 'my' },
 ];
 
-const BottomItem = React.memo(({ text, icon, current }) => {
-  const dispatch = useAppDispatchContext();
-
+const BottomItem = React.memo(({ text, icon, url }) => {
   console.log('bottom item');
 
-  const setScreen = useCallback((e) => {
-    dispatch({
-      type: 'SET_SCREEN',
-      screen: e.currentTarget.name,
-    });
-    // eslint-disable-next-line
-  }, []);
-
   return (
-    <Link to={current} className="bottomNaviAnchor">
-      <button className="bottomNaviBtn" onClick={setScreen} name={current}>
+    <Link to={url} className="bottomNaviAnchor">
+      <button className="bottomNaviBtn" name={url}>
         <div>
           <div>{icon}</div>
           <div>{text}</div>
@@ -50,7 +40,7 @@ const BottomNavi = () => {
           text={item.text}
           icon={item.icon}
           key={index}
-          current={item.current}
+          url={item.url}
         />
       ))}
     </div>
