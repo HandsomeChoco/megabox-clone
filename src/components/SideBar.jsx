@@ -35,10 +35,10 @@ const SideBarHeader = React.memo(() => {
     <div className="sideBar-Header">
       <div className="sideBar-Header-Top">
         <span>
-          <Link to="/login" onClick={toggleLoginWindow}>
+          <Link to="/login" onClick={toggleLoginWindow} className='sideBar-Header-Login'>
             로그인
           </Link>
-          후 이용하세요!
+          &nbsp;후 이용하세요!
         </span>
         <span>
           <RiHome2Line style={{ fontSize: 25, paddingRight: '0.5rem' }} />
