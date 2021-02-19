@@ -1,10 +1,5 @@
 const reducer = (state, action) => {
   switch (action.type) {
-    case 'SET_SCREEN':
-      return {
-        ...state,
-        screen: action.screen,
-      };
     case 'TOGGLE_SIDEBAR':
       return {
         ...state,
