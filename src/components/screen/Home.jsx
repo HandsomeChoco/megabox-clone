@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
 function Home() {
-  console.log('Home')
-  return <div>홈</div>;
+  console.log('Home');
+  return <div style={{ color: 'white' }}>홈</div>;
 }
 
 export default React.memo(Home);
