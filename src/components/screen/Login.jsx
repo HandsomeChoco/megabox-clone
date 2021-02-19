@@ -22,9 +22,6 @@ function Login({ history }) {
     // history.goBack();
   };
 
-  console.log(document.URL, history);
-  useEffect(() => {});
-
   return (
     <div className={isLoginWindowHidden ? 'login loginHidden' : 'login'}>
       <div className="login-top">
