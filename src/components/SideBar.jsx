@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { IoMdClose } from 'react-icons/io';
 import { RiHome2Line, RiTicketLine } from 'react-icons/ri';
 import { BiBookAdd, BiMovie, BiShoppingBag } from 'react-icons/bi';
@@ -34,10 +35,10 @@ const SideBarHeader = React.memo(() => {
     <div className="sideBar-Header">
       <div className="sideBar-Header-Top">
         <span>
-          <a href="#" onClick={toggleLoginWindow}>
+          <Link to="/login" onClick={toggleLoginWindow} className='sideBar-Header-Login'>
             로그인
-          </a>
-          후 이용하세요!
+          </Link>
+          &nbsp;후 이용하세요!
         </span>
         <span>
           <RiHome2Line style={{ fontSize: 25, paddingRight: '0.5rem' }} />
