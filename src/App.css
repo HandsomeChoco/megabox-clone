@@ -76,6 +76,10 @@
   padding: 1rem;
 }
 
+.sideBar-Header-Login {
+  color: var(--bg-color);
+}
+
 .sideBar-Header-Top {
   display: flex;
   justify-content: space-between;
@@ -163,6 +167,7 @@
 .login-top {
   display: flex;
   align-items: center;
+  padding-bottom: 4rem;
 }
 
 .login-top-title {
@@ -175,4 +180,32 @@
 .login-top-icon {
   width: 25px;
   height: 25px;
+}
+
+.login-middle-input {
+  display: flex;
+  flex-flow: column nowrap;
+}
+.login-middle-input > input {
+  padding-bottom: 0.8em;
+  border: none;
+  border-bottom: 1px solid #d6d6d6;
+  margin-top: 1rem;
+}
+
+.login-middle-checkbox {
+  padding-top: 1rem;
+}
+
+.login-middle-form {
+  padding-top: 2rem;
+}
+
+.login-button {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  background-color: #6437bf;
+  color: var(--bg-color);
+  font-size: 1rem;
 }
