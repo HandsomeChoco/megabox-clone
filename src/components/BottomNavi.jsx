@@ -3,8 +3,7 @@ import { AiFillHome, AiFillShopping } from 'react-icons/ai';
 import { FaTicketAlt } from 'react-icons/fa';
 import { GiPopcorn } from 'react-icons/gi';
 import { BsFillPersonFill } from 'react-icons/bs';
-import { useAppDispatchContext } from '../context/AppContext';
-import React, { useCallback, useMemo } from 'react';
+import React, { useMemo } from 'react';
 
 const itemInfo = [
   { icon: <AiFillHome />, text: '홈', url: '' },
@@ -29,10 +28,9 @@ const BottomItem = React.memo(({ text, icon, url }) => {
   );
 });
 
-const BottomNavi = () => {
-  console.log('bottom navi');
+const BottomNavi = ({ history }) => {
+  console.log('bottom navi', history);
   const memoItemInfo = useMemo(() => itemInfo, []);
-
   return (
     <div className="bottomNavi">
       {memoItemInfo.map((item, index) => (

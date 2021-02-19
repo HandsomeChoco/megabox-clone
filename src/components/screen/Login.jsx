@@ -1,11 +1,11 @@
-import React, {  } from 'react';
+import React, { useEffect } from 'react';
 import { IoMdClose } from 'react-icons/io';
 import {
   useAppDispatchContext,
   useAppStateContext,
 } from '../../context/AppContext';
 
-function Login() {
+function Login({ history }) {
   console.log('login');
   const state = useAppStateContext();
   const dispatch = useAppDispatchContext();
@@ -17,6 +17,14 @@ function Login() {
     });
   };
 
+  const goBack = () => {
+    toggleLoginWindow();
+    // history.goBack();
+  };
+
+  console.log(document.URL, history);
+  useEffect(() => {});
+
   return (
     <div className={isLoginWindowHidden ? 'login loginHidden' : 'login'}>
       <div className="login-top">
@@ -24,7 +32,7 @@ function Login() {
           <h3>로그인</h3>
         </div>
         <div className="login-top-icon">
-          <IoMdClose style={{ fontSize: 25 }} onClick={toggleLoginWindow} />
+          <IoMdClose style={{ fontSize: 25 }} onClick={goBack} />
         </div>
       </div>
     </div>
