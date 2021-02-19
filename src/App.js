@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 import './App.css';
 import Container from './components/Container';
 import BottomNavi from './components/BottomNavi';
@@ -15,9 +16,10 @@ function App() {
       <Container>
         <TopNavi />
         <SideBar />
-        <BottomNavi />
+        <Route path="/">
+          <BottomNavi />
+        </Route>
         <Screen />
-        <Login />
       </Container>
     </>
   );
