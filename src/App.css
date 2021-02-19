@@ -23,6 +23,11 @@
   border-top: var(--border-color);
 }
 
+.bottomNaviAnchor {
+  display: flex;
+  text-decoration: none;
+  width: 100%;
+}
 .bottomNaviBtn {
   background-color: var(--bg-color);
   width: 100%;
@@ -36,6 +41,13 @@
   height: 50px;
   align-items: center;
   justify-content: space-between;
+}
+
+.topNavi > div {
+  height: 25px;
+}
+.topNavi > div:nth-child(1) {
+  padding-right: calc(2rem + 1px);
 }
 
 .sideBar {
@@ -143,6 +155,7 @@
 }
 
 .loginHidden {
+  z-index: 3;
   transform-origin: right bottom;
   transform: scaleY(0);
 }
