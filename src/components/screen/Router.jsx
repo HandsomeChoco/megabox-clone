@@ -1,4 +1,4 @@
-import React, { Suspense, useCallback } from 'react';
+import React, { Suspense } from 'react';
 import { Route } from 'react-router-dom';
 
 const Home = React.lazy(() => import('./Home'));
@@ -12,7 +12,7 @@ const Login = React.lazy(() => import('./Login'));
   같은 버튼을 눌렀을 때 리렌더링이 일어남. 이렇게 작성하니 그렇지 않음.
 */
 
-const Screen = () => {
+const Router = () => {
   return (
     <>
       <Suspense fallback={'로딩 중...'}>
@@ -44,4 +44,4 @@ const Screen = () => {
   );
 };
 
-export default React.memo(Screen);
+export default React.memo(Router);

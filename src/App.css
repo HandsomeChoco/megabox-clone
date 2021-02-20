@@ -209,3 +209,36 @@
   color: var(--bg-color);
   font-size: 1rem;
 }
+
+.login-bottom-links {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-flow: column wrap;
+  margin-top: 1rem;
+}
+
+.login-bottom-account > a{
+  text-decoration: none;
+  color: gray;
+  padding: 0.5rem;
+}
+
+.login-bottom-social {
+  margin-top: 1rem;
+  font-size: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.fb {
+  color: rgb(36, 60, 109);
+}
+
+.kakao {
+  color: rgb(66, 54, 48);
+}
+
+.apple {
+  color: black;
+}
