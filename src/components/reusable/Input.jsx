@@ -1,4 +1,4 @@
 import React from 'react';
 
-const Input = ({ ...rest }) => <input {...rest} />;
+const Input = ({ _ref, ...rest }) => <input {...rest} ref={_ref}/>;
 export default React.memo(Input);
