@@ -1,0 +1,245 @@
+:root {
+  --bg-color: white;
+  --theme-color: rgb(19, 13, 55);
+  --border-color: #d6d6d6;
+}
+
+.container {
+  position: relative;
+  background-color: var(--theme-color);
+  width: 100%;
+  height: 100vh;
+}
+
+.bottomNavi {
+  display: flex;
+  position: fixed;
+  justify-content: space-around;
+  bottom: 0;
+  width: 100%;
+  max-width: 64rem;
+  height: 50px;
+  background-color: var(--bg-color);
+  border-top: var(--border-color);
+}
+
+.bottomNaviAnchor {
+  display: flex;
+  text-decoration: none;
+  width: 100%;
+}
+.bottomNaviBtn {
+  background-color: var(--bg-color);
+  width: 100%;
+  border: none;
+  padding: 0px;
+}
+
+.topNavi {
+  display: flex;
+  background-color: var(--theme-color);
+  height: 50px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topNavi > div {
+  height: 25px;
+}
+.topNavi > div:nth-child(1) {
+  padding-right: calc(2rem + 1px);
+}
+
+.sideBar {
+  z-index: 2;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  height: 100vh;
+  width: 20rem;
+  background-color: var(--bg-color);
+  overflow-x: hidden;
+  overflow-y: auto;
+  transition: 0.3s;
+  transform: scaleX(1);
+  transform-origin: right top;
+}
+
+.sideBar-hidden {
+  transform-origin: right top;
+  transform: scaleX(0);
+}
+
+.sideBar-Header {
+  background-color: var(--theme-color);
+  color: var(--bg-color);
+  padding: 1rem;
+}
+
+.sideBar-Header-Login {
+  color: var(--bg-color);
+}
+
+.sideBar-Header-Top {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 4rem;
+  align-items: center;
+}
+
+.sideBar-Header-Bottom {
+  color: var(--border-color);
+  padding: 0 1rem 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sideBar-Shop {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sideBar-Shop-Item {
+  flex-basis: calc(33.3%);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sideBar-Shop-Item-IconWrapper {
+  display: flex;
+  border: 2px solid var(--border-color);
+  margin: 1rem 1rem 5px 1rem;
+  border-radius: 100%;
+  width: 60px;
+  height: 60px;
+  justify-content: center;
+  align-items: center;
+}
+
+.sideBar-Shop-Item-IconWrapper > svg {
+  font-size: 30px;
+}
+
+.sideBar-Shop-Item-Text {
+  font-size: 14px;
+  margin-bottom: 1rem;
+}
+
+.sideBar-Menu-Item {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sideBar-Notice {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  font-size: 13px;
+  color: rgb(0, 204, 204);
+}
+
+.login {
+  z-index: 3;
+  background-color: var(--bg-color);
+  transition: 0.5s;
+  width: calc(100% - 2rem);
+  height: calc(100vh - 2rem);
+  padding: 1rem;
+  position: absolute;
+  bottom: 0;
+  transform-origin: right bottom;
+  transform: scaleY(1);
+}
+
+.loginHidden {
+  z-index: 3;
+  transform-origin: right bottom;
+  transform: scaleY(0);
+}
+
+.login-top {
+  display: flex;
+  align-items: center;
+  padding-bottom: 4rem;
+}
+
+.login-top-title {
+  flex-basis: calc(100% - 1rem);
+  text-align: center;
+}
+.login-top-title > h3 {
+  margin: 0px;
+}
+.login-top-icon {
+  width: 25px;
+  height: 25px;
+}
+
+.login-middle-input {
+  display: flex;
+  flex-flow: column nowrap;
+}
+.login-middle-input > input {
+  padding-bottom: 0.8em;
+  border: none;
+  border-bottom: 1px solid #d6d6d6;
+  margin-top: 1rem;
+}
+
+.login-middle-checkbox {
+  padding-top: 1rem;
+}
+
+.login-middle-form {
+  padding-top: 2rem;
+}
+
+.login-button {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  background-color: #6437bf;
+  color: var(--bg-color);
+  font-size: 1rem;
+}
+
+.login-bottom-links {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-flow: column wrap;
+  margin-top: 1rem;
+}
+
+.login-bottom-account > a{
+  text-decoration: none;
+  color: gray;
+  padding: 0.5rem;
+}
+
+.login-bottom-social {
+  margin-top: 1rem;
+  font-size: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.fb {
+  color: rgb(36, 60, 109);
+}
+
+.kakao {
+  color: rgb(66, 54, 48);
+}
+
+.apple {
+  color: black;
+}
