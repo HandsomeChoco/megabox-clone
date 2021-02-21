@@ -5,7 +5,7 @@ const useInputs = (initState) => {
     
     const onChange = useCallback(e => {
         const { name, value } = e.target;
-        setInputState({ ...inputState, [name]: value })
+        setInputState({ ...inputState, [name]: value });
     }, []);
 
     return  [inputState, onChange];
