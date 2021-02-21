@@ -28,11 +28,11 @@ const Middle = React.memo(() => {
   return (
     <div className="login-middle-input">
       <Form>
-        <Input type="text" placeholder="아이디" />
-        <Input type="password" placeholder="비밀번호" />
+        <Input type="text" placeholder="아이디" name="userid" />
+        <Input type="password" placeholder="비밀번호" name="password" />
 
         <div className="login-middle-checkbox">
-          <Input type="checkbox" id="auto-login" />
+          <Input type="checkbox" id="auto-login" name="autoLoginCheck" />
           <label htmlFor="auto-login"> 자동 로그인</label>
         </div>
 
