@@ -10,6 +10,7 @@ import {
 } from '../../context/AppContext';
 import Input from '../reusable/Input';
 import Form from '../reusable/Form';
+import useInputs from '../../hooks/useInputs';
 
 const Top = React.memo(({ goBack }) => {
   console.log('Top component in SideBar has been rendered!');
@@ -26,17 +27,37 @@ const Top = React.memo(({ goBack }) => {
   );
 });
 
-const Middle = React.memo(({ _ref }) => {
-  console.log('Middle component in SideBar has been rendered')
- 
+const Middle = React.memo(({ _ref, inputState, _onSubmit, onChangeId, onChangePW, onChangeCheckBox }) => {
+  const { userid, password, autoLoginConfirm } = inputState;
+  console.log('Middle component in SideBar has been rendered');
+  
   return (
     <div className="login-middle-input">
-      <Form>
-        <Input type="text" placeholder="아이디" name="userid" _ref={_ref}/>
-        <Input type="password" placeholder="비밀번호" name="password" />
+      <Form onSubmit={_onSubmit}>
+        <Input 
+          type="text" 
+          placeholder="아이디"
+          value={userid}
+          name="userid"
+          _ref={_ref}
+          onChange={onChangeId}
+        />
+        <Input 
+          type="password" 
+          placeholder="비밀번호"
+          value={password}
+          name="password"
+          onChange={onChangePW}
+        />
 
         <div className="login-middle-checkbox">
-          <Input type="checkbox" id="auto-login" name="autoLoginCheck" />
+          <Input 
+            type="checkbox" 
+            id="auto-login" 
+            name="autoLoginCheck"
+            checked={autoLoginConfirm}
+            onChange={onChangeCheckBox}
+          />
           <label htmlFor="auto-login"> 자동 로그인</label>
         </div>
         <button className="login-button">로그인</button>
@@ -81,13 +102,20 @@ const Bottom = React.memo(() => {
   );
 });
 
+const initState = {
+  userid: '',
+  password: '',
+  autoLoginConfirm: false
+}
+
 const Login = ({ history }) => {
   console.log('login');
   const state = useAppStateContext();
   const dispatch = useAppDispatchContext();
   const { isLoginWindowHidden } = state;
-  
   const initInput = useRef();
+  const [inputState, onChange] = useInputs(initState);
+  console.log(inputState);
 
   const toggleLoginWindow = useCallback(() => {
     dispatch({
@@ -99,6 +127,11 @@ const Login = ({ history }) => {
     toggleLoginWindow();
     // X 버튼 누르면 다시 이전 URL 로 돌아가야 함
     // history.goBack();
+  }, []);
+
+  const sendLoginInfo = useCallback((e) => {
+    e.preventDefault();
+    alert('test')
   }, []);
 
   useEffect(() => {
@@ -113,7 +146,14 @@ const Login = ({ history }) => {
   return (
     <div className={isLoginWindowHidden ? 'login loginHidden' : 'login'}>
       <Top goBack={goBack} />
-      <Middle _ref={initInput} />
+      <Middle 
+        _ref={initInput}
+        inputState={inputState}
+        _onSubmit={sendLoginInfo}
+        onChangeId={onChange}
+        onChangePW={onChange}
+        onChangeCheckBox={onChange}
+      />
       <Bottom />
     </div>
   );
