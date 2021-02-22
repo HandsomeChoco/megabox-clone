@@ -27,47 +27,56 @@ const Top = React.memo(({ goBack }) => {
   );
 });
 
-const Middle = React.memo(({ _ref, inputState, _onSubmit, onChangeId, onChangePW, onChangeCheckBox }) => {
-  const { userid, password, autoLoginConfirm } = inputState;
-  console.log('Middle component in SideBar has been rendered');
-  
-  return (
-    <div className="login-middle-input">
-      <Form onSubmit={_onSubmit}>
-        <Input 
-          type="text" 
-          placeholder="아이디"
-          value={userid}
-          name="userid"
-          _ref={_ref}
-          onChange={onChangeId}
-        />
-        <Input 
-          type="password" 
-          placeholder="비밀번호"
-          value={password}
-          name="password"
-          onChange={onChangePW}
-        />
+const Middle = React.memo(
+  ({
+    _ref,
+    inputState,
+    _onSubmit,
+    onChangeId,
+    onChangePW,
+    onChangeCheckBox,
+  }) => {
+    const { userid, password, autoLoginConfirm } = inputState;
+    console.log('Middle component in SideBar has been rendered');
 
-        <div className="login-middle-checkbox">
-          <Input 
-            type="checkbox" 
-            id="auto-login" 
-            name="autoLoginCheck"
-            checked={autoLoginConfirm}
-            onChange={onChangeCheckBox}
+    return (
+      <div className="login-middle-input">
+        <Form onSubmit={_onSubmit}>
+          <Input
+            type="text"
+            placeholder="아이디"
+            value={userid}
+            name="userid"
+            _ref={_ref}
+            onChange={onChangeId}
           />
-          <label htmlFor="auto-login"> 자동 로그인</label>
-        </div>
-        <button className="login-button">로그인</button>
-      </Form>
-    </div>
-  );
-});
+          <Input
+            type="password"
+            placeholder="비밀번호"
+            value={password}
+            name="password"
+            onChange={onChangePW}
+          />
+
+          <div className="login-middle-checkbox">
+            <Input
+              type="checkbox"
+              id="auto-login"
+              name="autoLoginConfirm"
+              defaultChecked={autoLoginConfirm}
+              onChange={onChangeCheckBox}
+            />
+            <label htmlFor="auto-login"> 자동 로그인</label>
+          </div>
+          <button className="login-button">로그인</button>
+        </Form>
+      </div>
+    );
+  },
+);
 
 const Bottom = React.memo(() => {
-  console.log('Bottom component in SideBar has been rendered')
+  console.log('Bottom component in SideBar has been rendered');
   return (
     <div className="login-bottom-links">
       <div className="login-bottom-account">
@@ -105,8 +114,8 @@ const Bottom = React.memo(() => {
 const initState = {
   userid: '',
   password: '',
-  autoLoginConfirm: false
-}
+  autoLoginConfirm: false,
+};
 
 const Login = ({ history }) => {
   console.log('login');
@@ -114,7 +123,7 @@ const Login = ({ history }) => {
   const dispatch = useAppDispatchContext();
   const { isLoginWindowHidden } = state;
   const initInput = useRef();
-  const [inputState, onChange] = useInputs(initState);
+  const [inputState, onChange, onToggle] = useInputs(initState);
   console.log(inputState);
 
   const toggleLoginWindow = useCallback(() => {
@@ -129,16 +138,16 @@ const Login = ({ history }) => {
     // history.goBack();
   }, []);
 
-  const sendLoginInfo = useCallback((e) => {
+  const sendLoginInfo = useCallback(e => {
     e.preventDefault();
-    alert('test')
+    alert('test');
   }, []);
 
   useEffect(() => {
     // URL 을 통해서 접근시 바로 로그인 페이지를 보여주기 위한 코드
-    if (document.URL === 'http://localhost:3000/login' && isLoginWindowHidden) {
+    if (isLoginWindowHidden) {
       toggleLoginWindow();
-      initInput.current.focus(); 
+      initInput.current.focus();
     }
     //eslint-disable-next-line
   }, []);
@@ -146,13 +155,13 @@ const Login = ({ history }) => {
   return (
     <div className={isLoginWindowHidden ? 'login loginHidden' : 'login'}>
       <Top goBack={goBack} />
-      <Middle 
+      <Middle
         _ref={initInput}
         inputState={inputState}
         _onSubmit={sendLoginInfo}
         onChangeId={onChange}
         onChangePW={onChange}
-        onChangeCheckBox={onChange}
+        onChangeCheckBox={onToggle}
       />
       <Bottom />
     </div>
