@@ -36,4 +36,4 @@ export const useAppDispatchContext = () => {
   return state;
 };
 
-export default AppContext;
+export default React.memo(AppContext);
