@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { IoMdClose } from 'react-icons/io';
 import { RiHome2Line, RiTicketLine } from 'react-icons/ri';
@@ -16,26 +16,31 @@ import {
 
 const SideBarHeader = React.memo(() => {
   console.log('SideBarHeader');
-
   const dispatch = useAppDispatchContext();
 
-  const toggleSideBar = () => {
+  const toggleSideBar = useCallback(() => {
     dispatch({
       type: 'TOGGLE_SIDEBAR',
     });
-  };
+    //eslint-disable-next-line
+  }, []);
 
-  const toggleLoginWindow = () => {
+  const toggleLoginWindow = useCallback(() => {
     dispatch({
       type: 'TOGGLE_LOGIN_WINDOW',
     });
-  };
+    //eslint-disable-next-line
+  }, []);
 
   return (
     <div className="sideBar-Header">
       <div className="sideBar-Header-Top">
         <span>
-          <Link to="/login" onClick={toggleLoginWindow} className='sideBar-Header-Login'>
+          <Link
+            to="/login"
+            onClick={toggleLoginWindow}
+            className="sideBar-Header-Login"
+          >
             로그인
           </Link>
           &nbsp;후 이용하세요!
@@ -47,16 +52,16 @@ const SideBarHeader = React.memo(() => {
       </div>
       <div className="sideBar-Header-Bottom">
         <div>
-          <span>
+          <Link to="/join" className="sideBar-Header-Bottom-links">
             <BiBookAdd />
-          </span>
-          <span> 회원가입</span>
+            &nbsp;회원가입
+          </Link>
         </div>
         <div>
-          <span>
+          <Link to="/get_booked" className="sideBar-Header-Bottom-links">
             <RiTicketLine />
-          </span>
-          <span> 비회원 예매확인</span>
+            &nbsp;비회원 예매확인
+          </Link>
         </div>
       </div>
     </div>
