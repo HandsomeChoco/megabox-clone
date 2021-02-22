@@ -39,6 +39,9 @@
   padding: 0px;
 }
 
+.active {
+  color: rgb(0, 183, 212);
+}
 .topNavi {
   display: flex;
   background-color: var(--theme-color);

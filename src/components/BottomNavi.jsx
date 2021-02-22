@@ -3,25 +3,32 @@ import { AiFillHome, AiFillShopping } from 'react-icons/ai';
 import { FaTicketAlt } from 'react-icons/fa';
 import { GiPopcorn } from 'react-icons/gi';
 import { BsFillPersonFill } from 'react-icons/bs';
-import React, { useState, useMemo, useCallback } from 'react';
-//0, 183, 212 토글 컬러
+import React, { useCallback, useMemo, useState } from 'react';
+
+//prettier-ignore
 const itemInfo = [
-  { icon: <AiFillHome />, text: '홈', url: '' },
-  { icon: <AiFillShopping />, text: '스토어', url: 'store' },
-  { icon: <FaTicketAlt />, text: '예매', url: 'booking' },
-  { icon: <GiPopcorn />, text: '모바일오더', url: 'mobile_order' },
-  { icon: <BsFillPersonFill />, text: 'MY', url: 'my' },
+  { icon: <AiFillHome />, text: '홈', url: '', active: true },
+  { icon: <AiFillShopping />, text: '스토어', url: 'store', active: false },
+  { icon: <FaTicketAlt />, text: '예매', url: 'booking', active: false },
+  { icon: <GiPopcorn />, text: '모바일오더', url: 'mobile_order', active: false },
+  { icon: <BsFillPersonFill />, text: 'MY', url: 'my', active: false },
 ];
 
-const BottomItem = React.memo(({ text, icon, url, onClick }) => {
-  console.log('bottom item');
-
+const BottomItem = React.memo(({ item, onClick, active, id }) => {
+  console.log('bottom item', id);
   return (
-    <Link to={url} className="bottomNaviAnchor" onClick={onClick}>
-      <button className="bottomNaviBtn" name={url}>
+    <Link
+      to={item.url}
+      className="bottomNaviAnchor"
+      onClick={() => onClick(id)}
+    >
+      <button
+        className={`bottomNaviBtn ${active ? 'active' : ''}`}
+        name={item.url !== '' ? item.url : 'home'}
+      >
         <div>
-          <div>{icon}</div>
-          <div>{text}</div>
+          <div>{item.icon}</div>
+          <div>{item.text}</div>
         </div>
       </button>
     </Link>
@@ -29,24 +36,24 @@ const BottomItem = React.memo(({ text, icon, url, onClick }) => {
 });
 
 const BottomNavi = ({ history }) => {
-  const [state, setState] = useState({ active: 'home' });
-
   console.log('bottom navi', history);
   const memoItemInfo = useMemo(() => itemInfo, []);
+  const [state, setState] = useState({ active: 0 });
+  const { active } = state;
 
-  const setActive = useCallback(index => {
-    setState(state => ({ ...state, active: index }));
-  }, []);
+  //prettier-ignore
+  const setActive = useCallback(id => 
+    setState(state => ({ ...state, active: id })), []);
 
   return (
     <div className="bottomNavi">
       {memoItemInfo.map((item, index) => (
         <BottomItem
-          text={item.text}
-          icon={item.icon}
+          item={item}
           key={index}
-          url={item.url}
+          id={index}
           onClick={setActive}
+          active={active === index}
         />
       ))}
     </div>
