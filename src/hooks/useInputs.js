@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 
 const useInputs = initState => {
   const [inputState, setInputState] = useState(initState);
