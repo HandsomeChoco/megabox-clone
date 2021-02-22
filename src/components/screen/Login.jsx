@@ -124,7 +124,6 @@ const Login = ({ history }) => {
   const { isLoginWindowHidden } = state;
   const initInput = useRef();
   const [inputState, onChange, onToggle] = useInputs(initState);
-  console.log(inputState);
 
   const toggleLoginWindow = useCallback(() => {
     dispatch({
@@ -135,7 +134,7 @@ const Login = ({ history }) => {
   const goBack = useCallback(() => {
     toggleLoginWindow();
     // X 버튼 누르면 다시 이전 URL 로 돌아가야 함
-    // history.goBack();
+    // history.back();
   }, []);
 
   const sendLoginInfo = useCallback(e => {
