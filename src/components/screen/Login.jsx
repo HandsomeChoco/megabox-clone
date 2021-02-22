@@ -12,13 +12,13 @@ import Input from '../reusable/Input';
 import Form from '../reusable/Form';
 import useInputs from '../../hooks/useInputs';
 
-const Top = React.memo(({ goBack }) => {
+export const Top = React.memo(({ text, goBack }) => {
   console.log('Top component in SideBar has been rendered!');
 
   return (
     <div className="login-top">
       <div className="login-top-title">
-        <h3>로그인</h3>
+        <h3>{text}</h3>
       </div>
       <div className="login-top-icon">
         <IoMdClose style={{ fontSize: 25 }} onClick={goBack} />
@@ -153,7 +153,7 @@ const Login = ({ history }) => {
 
   return (
     <div className={isLoginWindowHidden ? 'login loginHidden' : 'login'}>
-      <Top goBack={goBack} />
+      <Top text="로그인" goBack={goBack} />
       <Middle
         _ref={initInput}
         inputState={inputState}
