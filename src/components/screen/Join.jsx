@@ -31,17 +31,17 @@ const Join = ({ history }) => {
     agree,
   } = state.inputs;
 
-  const setAgree = useCallback((e) => {
+  const setAgree = useCallback(e => {
     e.preventDefault();
-    setInputState((state) => ({
+    setInputState(state => ({
       ...state,
       inputs: { ...state.inputs, agree: true },
     }));
   }, []);
 
-  const setDisagree = useCallback((e) => {
+  const setDisagree = useCallback(e => {
     e.preventDefault();
-    setInputState((state) => ({
+    setInputState(state => ({
       ...state,
       inputs: { ...state.inputs, agree: false },
     }));
@@ -51,19 +51,15 @@ const Join = ({ history }) => {
     await Axios.post(url, data);
   };
 
-  const sendJoinRequest = useCallback(
-    async (e) => {
-      e.preventDefault();
-      try {
-        await sendState('http://localhost:6666', state);
-      } catch {
-        alert(
-          '전송에 실패하였습니다. 지금 뜨는 에러는 정상입니다. 데이터를 보낼 곳이 없거든요',
-        );
+  //prettier-ignore
+  const sendJoinRequest = useCallback(async e => {
+    e.preventDefault();
+    try {
+      await sendState('http://localhost:6666', state);
+    } catch {
+      alert('전송에 실패하였습니다. 지금 뜨는 에러는 정상입니다. 데이터를 보낼 곳이 없거든요',);
       }
-    },
-    [state],
-  );
+    },[state]);
 
   useEffect(() => {
     // 중복 체크 및 입력값 유효성 검사는 여기서
