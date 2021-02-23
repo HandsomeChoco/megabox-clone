@@ -33,13 +33,13 @@ const SideBarHeader = React.memo(() => {
   }, []);
 
   return (
-    <div className="sideBar-Header">
-      <div className="sideBar-Header-Top">
+    <div className="sideBar-header">
+      <div className="sideBar-header-top">
         <span>
           <Link
             to="/login"
             onClick={toggleLoginWindow}
-            className="sideBar-Header-Login"
+            className="sideBar-header-login"
           >
             로그인
           </Link>
@@ -50,15 +50,15 @@ const SideBarHeader = React.memo(() => {
           <IoMdClose style={{ fontSize: 25 }} onClick={toggleSideBar} />
         </span>
       </div>
-      <div className="sideBar-Header-Bottom">
+      <div className="sideBar-header-bottom">
         <div>
-          <Link to="/join" className="sideBar-Header-Bottom-links">
+          <Link to="/join" className="sideBar-header-bottom-links">
             <BiBookAdd />
             &nbsp;회원가입
           </Link>
         </div>
         <div>
-          <Link to="/get_booked" className="sideBar-Header-Bottom-links">
+          <Link to="/get_booked" className="sideBar-header-bottom-links">
             <RiTicketLine />
             &nbsp;비회원 예매확인
           </Link>
@@ -80,9 +80,9 @@ const sideBarShopItem = [
 const SideBarShopItem = React.memo(({ element, text }) => {
   console.log('SideBarShopItem');
   return (
-    <div className="sideBar-Shop-Item">
-      <div className="sideBar-Shop-Item-IconWrapper">{element}</div>
-      <div className="sideBar-Shop-Item-Text">{text}</div>
+    <div className="sideBar-shop-item">
+      <div className="sideBar-shop-item-iconWrapper">{element}</div>
+      <div className="sideBar-shop-item-text">{text}</div>
     </div>
   );
 });
@@ -90,7 +90,7 @@ const SideBarShopItem = React.memo(({ element, text }) => {
 const SideBarShop = React.memo(() => {
   console.log('SideBarShop');
   return (
-    <div className="sideBar-Shop">
+    <div className="sideBar-shop">
       {sideBarShopItem.map((items, index) => (
         <SideBarShopItem
           element={items.element}
@@ -105,27 +105,27 @@ const SideBarShop = React.memo(() => {
 const SideBarMenu = React.memo(() => {
   console.log('SideBarMenu');
   return (
-    <div className="sideBar-Menu">
-      <div className="sideBar-Menu-Item">
+    <div className="sideBar-menu">
+      <div className="sideBar-menu-item">
         <span>이벤트</span>
       </div>
-      <div className="sideBar-Menu-Item">
+      <div className="sideBar-menu-item">
         <span>포토카드</span>
       </div>
-      <div className="sideBar-Menu-Item">
+      <div className="sideBar-menu-item">
         <span>극장안내</span>
       </div>
-      <div className="sideBar-Menu-Item">
+      <div className="sideBar-menu-item">
         <span>무비포스트</span>
       </div>
-      <div className="sideBar-Menu-Item">
+      <div className="sideBar-menu-item">
         <span>더 부티크 프라이빗 예매</span>
       </div>
-      <div className="sideBar-Menu-Item">
+      <div className="sideBar-menu-item">
         <span>제휴/할인 안내</span>
       </div>
       <div
-        className="sideBar-Menu-Item"
+        className="sideBar-menu-item"
         style={{ display: 'flex', justifyContent: 'space-between' }}
       >
         <span>멤버십 안내</span>
@@ -133,7 +133,7 @@ const SideBarMenu = React.memo(() => {
           <MdKeyboardArrowDown />
         </span>
       </div>
-      <div className="sideBar-Menu-Item">
+      <div className="sideBar-menu-item">
         <span>고객센터</span>
       </div>
     </div>
@@ -143,7 +143,7 @@ const SideBarMenu = React.memo(() => {
 const SideBarNotice = React.memo(() => {
   console.log('SideBarNotice');
   return (
-    <div className="sideBar-Notice">
+    <div className="sideBar-notice">
       <IoMegaphoneOutline />
       &nbsp;[공지] 메가박스 개인정보 처리 방침 변경 안내
     </div>

@@ -73,28 +73,27 @@
 }
 
 .sideBar-hidden {
-  transform-origin: right top;
   transform: scaleX(0);
 }
 
-.sideBar-Header {
+.sideBar-header {
   background-color: var(--theme-color);
   color: var(--bg-color);
   padding: 1rem;
 }
 
-.sideBar-Header-Login {
+.sideBar-header-login {
   color: var(--bg-color);
 }
 
-.sideBar-Header-Top {
+.sideBar-header-top {
   display: flex;
   justify-content: space-between;
   padding-bottom: 4rem;
   align-items: center;
 }
 
-.sideBar-Header-Bottom {
+.sideBar-header-bottom {
   color: var(--border-color);
   padding: 0 1rem 0 1rem;
   display: flex;
@@ -102,13 +101,13 @@
   align-items: center;
 }
 
-.sideBar-Header-Bottom-links {
+.sideBar-header-bottom-links {
   display: flex;
   text-decoration: none;
   color: #d6d6d6;
 }
 
-.sideBar-Shop {
+.sideBar-shop {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -117,7 +116,7 @@
   border-bottom: 1px solid var(--border-color);
 }
 
-.sideBar-Shop-Item {
+.sideBar-shop-item {
   flex-basis: calc(33.3%);
   text-align: center;
   display: flex;
@@ -125,7 +124,7 @@
   align-items: center;
 }
 
-.sideBar-Shop-Item-IconWrapper {
+.sideBar-shop-item-iconWrapper {
   display: flex;
   border: 2px solid var(--border-color);
   margin: 1rem 1rem 5px 1rem;
@@ -136,21 +135,21 @@
   align-items: center;
 }
 
-.sideBar-Shop-Item-IconWrapper > svg {
+.sideBar-shop-item-iconWrapper > svg {
   font-size: 30px;
 }
 
-.sideBar-Shop-Item-Text {
+.sideBar-shop-item-text {
   font-size: 14px;
   margin-bottom: 1rem;
 }
 
-.sideBar-Menu-Item {
+.sideBar-menu-item {
   padding: 1rem;
   border-bottom: 1px solid var(--border-color);
 }
 
-.sideBar-Notice {
+.sideBar-notice {
   display: flex;
   align-items: center;
   padding: 1rem;
@@ -170,18 +169,10 @@
   bottom: 0;
   transform-origin: right bottom;
   transform: scaleY(1);
+  overflow-y: auto;
 }
 
 .loginHidden {
-  z-index: 3;
-  background-color: var(--bg-color);
-  transition: 0.5s;
-  width: calc(100% - 2rem);
-  height: calc(100vh - 2rem);
-  padding: 1rem;
-  position: absolute;
-  bottom: 0;
-  transform-origin: right bottom;
   transform: scaleY(0);
 }
 
@@ -264,7 +255,24 @@ input {
   color: black;
 }
 
+/* join === login */
 .join-form {
   display: flex;
   flex-flow: column nowrap;
+}
+
+.join-agree-button-wrapper {
+  display: flex;
+  height: 40px;
+}
+
+.join-agree-button {
+  flex-basis: 50%;
+  border: 2px solid #d6d6d6;
+}
+.agreed {
+  background-color: #ececec;
+  border-color: rgb(0, 183, 212);
+  color: rgb(0, 183, 212);
+  background-color: var(--bg-color);
 }
