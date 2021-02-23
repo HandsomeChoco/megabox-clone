@@ -13,7 +13,7 @@ const useInputs = initState => {
     setInputState(state => ({ ...state, [name]: checked }));
   }, []);
 
-  return [inputState, onChange, onToggle];
+  return [inputState, onChange, onToggle, setInputState];
 };
 
 export default useInputs;
