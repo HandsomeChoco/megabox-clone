@@ -1,20 +1,118 @@
-import React from 'react';
+import Axios from 'axios';
+import React, { useCallback, useEffect } from 'react';
+import useInputs from '../../hooks/useInputs';
 import Form from '../reusable/Form';
 import Input from '../reusable/Input';
 import { Top } from './Login';
 
+const initState = {
+  inputs: {
+    birthday: '',
+    phone: '',
+    userId: '',
+    password: '',
+    passwordVerify: '',
+    email: '',
+    agree: false,
+  },
+};
+
 const Join = ({ history }) => {
   console.log('join component', history);
+  //eslint-disable-next-line
+  const [state, onChange, onToggle, setInputState] = useInputs(initState);
+  const {
+    birthday,
+    phone,
+    userId,
+    password,
+    passwordVerify,
+    email,
+    agree,
+  } = state.inputs;
+
+  const setAgree = useCallback((e) => {
+    e.preventDefault();
+    setInputState((state) => ({
+      ...state,
+      inputs: { ...state.inputs, agree: true },
+    }));
+  }, []);
+
+  const setDisagree = useCallback((e) => {
+    e.preventDefault();
+    setInputState((state) => ({
+      ...state,
+      inputs: { ...state.inputs, agree: false },
+    }));
+  }, []);
+
+  const sendState = async (url, data) => {
+    await Axios.post(url, data);
+  };
+
+  const sendJoinRequest = useCallback(
+    async (e) => {
+      e.preventDefault();
+      try {
+        await sendState('http://localhost:6666', state);
+      } catch {
+        alert(
+          '전송에 실패하였습니다. 지금 뜨는 에러는 정상입니다. 데이터를 보낼 곳이 없거든요',
+        );
+      }
+    },
+    [state],
+  );
+
+  useEffect(() => {
+    // 중복 체크 및 입력값 유효성 검사는 여기서
+  }, []);
+
   return (
     <div className="join">
       <Top text="회원가입" />
       <Form className="join-form">
-        <Input placeholder="생년월일" />
-        <Input placeholder="휴대전화번호" />
-        <Input placeholder="아이디. 영문, 숫자 조합(8~12자)" />
-        <Input placeholder="비밀번호. 영문, 숫자, 특수 기호 중 2가지 이상 조합" />
-        <Input placeholder="비밀번호 검증" />
-        <Input placeholder="이메일 주소를 입력해주세요." />
+        <Input
+          placeholder="생년월일"
+          name="birthday"
+          value={birthday}
+          onChange={onChange}
+        />
+        <Input
+          placeholder="휴대전화번호"
+          name="phone"
+          value={phone}
+          onChange={onChange}
+        />
+        <Input
+          placeholder="아이디. 영문, 숫자 조합(8~12자)"
+          name="userId"
+          value={userId}
+          onChange={onChange}
+        />
+        <Input
+          type="password"
+          placeholder="비밀번호. 영문, 숫자, 특수 기호 중 2가지 이상 조합"
+          name="password"
+          value={password}
+          onChange={onChange}
+        />
+        <Input
+          type="password"
+          placeholder="비밀번호 검증"
+          name="passwordVerify"
+          value={passwordVerify}
+          onChange={onChange}
+        />
+        <Input
+          type="email"
+          placeholder="이메일 주소를 입력해주세요."
+          name="email"
+          value={email}
+          onChange={onChange}
+        />
+
         <div>
           <h3>무인발권기 기능 설정</h3>
           <span>* '생년월일 + 휴대폰번호로' 티켓 출력</span>
@@ -45,9 +143,26 @@ const Join = ({ history }) => {
             회원 탈퇴 시 혹은 이용 목적 달성 시 까지
           </span>
         </div>
-        <button className="">동의</button>
-        <button className="">비동의</button>
-        <button type="submit" className="join-submit-button">
+        <div className="join-agree-button-wrapper">
+          <button
+            className={`join-agree-button${agree ? ' agreed' : ''}`}
+            onClick={setAgree}
+          >
+            동의
+          </button>
+          <button
+            className={`join-agree-button${agree ? '' : ' agreed'}`}
+            onClick={setDisagree}
+          >
+            비동의
+          </button>
+        </div>
+
+        <button
+          type="submit"
+          className="join-submit-button"
+          onClick={sendJoinRequest}
+        >
           회원가입
         </button>
       </Form>
