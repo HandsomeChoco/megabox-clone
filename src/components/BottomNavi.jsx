@@ -36,8 +36,6 @@ const BottomItem = React.memo(({ item, onClick, active, id }) => {
 });
 
 const BottomNavi = ({ history }) => {
-  const [state, setState] = useState({ active: 'home' });
-
   console.log('bottom navi', history);
   const memoItemInfo = useMemo(() => itemInfo, []);
   const [state, setState] = useState({ active: 0 });
