@@ -39,6 +39,9 @@
   padding: 0px;
 }
 
+.active {
+  color: rgb(0, 183, 212);
+}
 .topNavi {
   display: flex;
   background-color: var(--theme-color);
@@ -155,7 +158,8 @@
   color: rgb(0, 204, 204);
 }
 
-.login {
+.login,
+.join {
   z-index: 3;
   background-color: var(--bg-color);
   transition: 0.5s;
@@ -170,6 +174,13 @@
 
 .loginHidden {
   z-index: 3;
+  background-color: var(--bg-color);
+  transition: 0.5s;
+  width: calc(100% - 2rem);
+  height: calc(100vh - 2rem);
+  padding: 1rem;
+  position: absolute;
+  bottom: 0;
   transform-origin: right bottom;
   transform: scaleY(0);
 }
@@ -196,7 +207,8 @@
   display: flex;
   flex-flow: column nowrap;
 }
-.login-middle-input > form > input {
+.login-middle-input > form > input,
+input {
   padding-bottom: 0.8em;
   border: none;
   border-bottom: 1px solid #d6d6d6;
@@ -207,7 +219,8 @@
   padding-top: 1rem;
 }
 
-.login-button {
+.login-button,
+.join-submit-button {
   margin-top: 2rem;
   width: 100%;
   padding: 1rem;
@@ -249,4 +262,9 @@
 
 .apple {
   color: black;
+}
+
+.join-form {
+  display: flex;
+  flex-flow: column nowrap;
 }
