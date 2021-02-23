@@ -73,7 +73,6 @@
 }
 
 .sideBar-hidden {
-  transform-origin: right top;
   transform: scaleX(0);
 }
 
@@ -173,15 +172,6 @@
 }
 
 .loginHidden {
-  z-index: 3;
-  background-color: var(--bg-color);
-  transition: 0.5s;
-  width: calc(100% - 2rem);
-  height: calc(100vh - 2rem);
-  padding: 1rem;
-  position: absolute;
-  bottom: 0;
-  transform-origin: right bottom;
   transform: scaleY(0);
 }
 
