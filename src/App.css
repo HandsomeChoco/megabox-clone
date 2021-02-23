@@ -169,6 +169,7 @@
   bottom: 0;
   transform-origin: right bottom;
   transform: scaleY(1);
+  overflow-y: auto;
 }
 
 .loginHidden {
@@ -254,7 +255,24 @@ input {
   color: black;
 }
 
+/* join === login */
 .join-form {
   display: flex;
   flex-flow: column nowrap;
+}
+
+.join-agree-button-wrapper {
+  display: flex;
+  height: 40px;
+}
+
+.join-agree-button {
+  flex-basis: 50%;
+  border: 2px solid #d6d6d6;
+}
+.agreed {
+  background-color: #ececec;
+  border-color: rgb(0, 183, 212);
+  color: rgb(0, 183, 212);
+  background-color: var(--bg-color);
 }
