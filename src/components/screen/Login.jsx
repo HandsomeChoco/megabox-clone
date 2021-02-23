@@ -38,7 +38,6 @@ const Middle = React.memo(
   }) => {
     const { userid, password, autoLoginConfirm } = inputState;
     console.log('Middle component in SideBar has been rendered');
-
     return (
       <div className="login-middle-input">
         <Form onSubmit={_onSubmit}>
@@ -84,7 +83,7 @@ const Bottom = React.memo(() => {
           <span>ID/PW 찾기</span>
         </Link>
         |
-        <Link to="/">
+        <Link to="/join">
           <span>회원가입</span>
         </Link>
         |
