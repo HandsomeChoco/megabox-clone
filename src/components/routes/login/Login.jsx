@@ -7,10 +7,10 @@ import { Link } from 'react-router-dom';
 import {
   useAppDispatchContext,
   useAppStateContext,
-} from '../../context/AppContext';
-import Input from '../reusable/Input';
-import Form from '../reusable/Form';
-import useInputs from '../../hooks/useInputs';
+} from '../../../context/AppContext';
+import Input from '../../reusable/Input';
+import Form from '../../reusable/Form';
+import useInputs from '../../../hooks/useInputs';
 
 export const Top = React.memo(({ text, goBack }) => {
   console.log('Top component in SideBar has been rendered!');
@@ -136,7 +136,7 @@ const Login = ({ history }) => {
     // history.back();
   }, []);
 
-  const sendLoginInfo = useCallback((e) => {
+  const sendLoginInfo = useCallback(e => {
     e.preventDefault();
     alert('test');
   }, []);
