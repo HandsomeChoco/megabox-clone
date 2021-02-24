@@ -5,7 +5,7 @@ import Container from './components/Container';
 import BottomNavi from './components/BottomNavi';
 import SideBar from './components/SideBar';
 import TopNavi from './components/TopNavi';
-import Router from './components/screen/Router';
+import Router from './components/routes/Router';
 
 function App() {
   console.log('App');

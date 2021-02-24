@@ -1,13 +1,13 @@
 import React, { Suspense } from 'react';
 import { Route } from 'react-router-dom';
 
-const Home = React.lazy(() => import('./Home'));
-const Store = React.lazy(() => import('./Store'));
-const Booking = React.lazy(() => import('./Booking'));
-const MobileOrder = React.lazy(() => import('./MobileOrder'));
-const My = React.lazy(() => import('./My'));
-const Login = React.lazy(() => import('./Login'));
-const Join = React.lazy(() => import('./Join'));
+const Home = React.lazy(() => import('./home/Home'));
+const Store = React.lazy(() => import('./store/Store'));
+const Booking = React.lazy(() => import('./booking/Booking'));
+const MobileOrder = React.lazy(() => import('./mobile_order/MobileOrder'));
+const My = React.lazy(() => import('./my/My'));
+const Login = React.lazy(() => import('./login/Login'));
+const Join = React.lazy(() => import('./join/Join'));
 
 /* <Route component={Component}/> 로 작성하면
   같은 버튼을 눌렀을 때 리렌더링이 일어남. 이렇게 작성하니 그렇지 않음.
