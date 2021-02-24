@@ -14,12 +14,16 @@ const HashTag = React.memo(({ text }) => {
   return <span className="hash-tag">{text}</span>;
 });
 
+const Poster = React.memo(() => {
+  return <li>Poster image</li>;
+});
 const Rank = () => {
   return (
     <div className="home-body-rank">
       {tags.map((tag, index) => (
         <HashTag text={'#' + tag} key={index} />
       ))}
+      <Poster />
     </div>
   );
 };
