@@ -284,7 +284,8 @@ input {
 
 .home-story-wrapper {
   display: flex;
-  padding: 1rem;
+  width: calc(100% - 2rem);
+  padding: 2rem 1rem;
 }
 
 .home-story-item {
@@ -295,6 +296,12 @@ input {
   border: 2px solid var(--bg-color);
   justify-content: center;
   align-items: center;
+  color: var(--bg-color);
+  margin-right: 1rem;
+}
+
+.home-story-item:nth-last-child(1) {
+  margin-right: 0px;
 }
 
 .home-body {
@@ -302,4 +309,16 @@ input {
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
   padding: 1rem;
+}
+
+.home-body-rank {
+  padding-top: 1rem;
+}
+
+.hash-tag {
+  color: var(--theme-color);
+  margin-right: 1rem;
+}
+.hash-tag:nth-last-child(1) {
+  margin-right: 0px;
 }
