@@ -5,6 +5,7 @@ import MovieFeed from './MovieFeed';
 import GreetAndPreScreen from './GreetAndPreScreen';
 import Event from './Event';
 import Special from './Special';
+import MoviePost from './MoviePost';
 
 const HomeBody = React.memo(() => {
   return (
