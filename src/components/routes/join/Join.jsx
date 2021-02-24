@@ -1,9 +1,9 @@
 import Axios from 'axios';
 import React, { useCallback, useEffect } from 'react';
-import useInputs from '../../hooks/useInputs';
-import Form from '../reusable/Form';
-import Input from '../reusable/Input';
-import { Top } from './Login';
+import useInputs from '../../../hooks/useInputs';
+import Form from '../../reusable/Form';
+import Input from '../../reusable/Input';
+import { Top } from '../login/Login';
 
 const initState = {
   inputs: {
