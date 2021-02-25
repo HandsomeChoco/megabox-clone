@@ -1,5 +1,4 @@
 import React from 'react';
-import { IoIosArrowForward } from 'react-icons/io';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 const tags = [
   '박스오피스',
