@@ -22,9 +22,9 @@
   bottom: 0;
   width: 100%;
   max-width: 64rem;
-  height: 50px;
+  height: 49px;
   background-color: var(--bg-color);
-  border-top: var(--border-color);
+  border-top: 1px solid var(--border-color);
 }
 
 .bottomNaviAnchor {
@@ -321,4 +321,28 @@ input {
 }
 .hash-tag:nth-last-child(1) {
   margin-right: 0px;
+}
+
+.poster-wrapper {
+  border: 2px solid red;
+  display: flex;
+  flex-flow: row nowrap;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+
+.poster {
+  border: 1px solid black;
+  list-style: none;
+  min-width: 11rem;
+  width: 11rem;
+  height: 20rem;
+  border-radius: 0.5rem;
+  margin-right: 1rem;
+}
+
+.poster-lookup {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
 }
