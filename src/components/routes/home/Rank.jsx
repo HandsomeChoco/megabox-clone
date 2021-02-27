@@ -21,7 +21,7 @@ const settings = {
   speed: 500,
   slidesToShow: 3,
   slidesToScroll: 3,
-  className: 'poster-slick',
+  className: 'poster-slicker',
 };
 
 const HashTag = React.memo(({ text }) => {
@@ -39,7 +39,7 @@ const Poster = React.memo(({ title, ratio, src, score }) => {
         <div className="poster-movie-info-ratio">
           <span>예매율: {ratio}%</span>
           <span>
-            <AiFillStar />
+            <AiFillStar className="star" />
             {score}
           </span>
         </div>
@@ -67,8 +67,18 @@ const Rank = () => {
               ratio={99.2}
               score={9.8}
             />
-            <Poster />
-            <Poster />
+            <Poster
+              title="어벤저스: 인피니티 워"
+              src="/infinity-war.jpg"
+              ratio={99.8}
+              score={9.8}
+            />
+            <Poster
+              title="어벤저스: 에이지 오브 울트론 (2015)"
+              src="/AOU.jpg"
+              ratio={99.8}
+              score={9.8}
+            />
             <Poster />
             <Poster />
             <Poster />
