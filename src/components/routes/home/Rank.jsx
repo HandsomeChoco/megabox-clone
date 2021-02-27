@@ -21,6 +21,7 @@ const settings = {
   speed: 500,
   slidesToShow: 3,
   slidesToScroll: 3,
+  className: 'poster-slick',
 };
 
 const HashTag = React.memo(({ text }) => {
@@ -33,9 +34,9 @@ const Poster = React.memo(({ title, ratio, src, score }) => {
       <div>
         <img src={`/imgs/${src}`} alt="" className="poster-image" />
       </div>
-      <div>
-        <div>{title}</div>
-        <div>
+      <div className="poster-movie-info">
+        <h4>{title}</h4>
+        <div className="poster-movie-info-ratio">
           <span>예매율: {ratio}%</span>
           <span>
             <AiFillStar />
@@ -60,7 +61,12 @@ const Rank = () => {
       <div>
         <div className="poster-wrapper">
           <MultiItemSlider settings={settings}>
-            <Poster title="어벤저스: 엔드게임" src="/endgame.jpg" />
+            <Poster
+              title="어벤저스: 엔드게임"
+              src="/endgame.jpg"
+              ratio={99.2}
+              score={9.8}
+            />
             <Poster />
             <Poster />
             <Poster />
