@@ -4,7 +4,7 @@ const Div = ({
   children,
   className,
   flex = false,
-  flow = 'column',
+  flow = 'row',
   justifyContent = 'none',
   alignItems = 'flexStart',
 }) => {
@@ -14,7 +14,7 @@ const Div = ({
     justifyContent: justifyContent,
     alignItems: alignItems,
   };
-
+  console.log(justifyContent);
   return (
     <div className={className} style={style}>
       {children}
