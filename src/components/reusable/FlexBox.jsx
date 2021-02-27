@@ -1,25 +1,31 @@
 import React from 'react';
 
-const Div = ({
+const FlexBox = ({
   children,
   className,
   flex = false,
   flow = 'row',
-  justifyContent = 'none',
-  alignItems = 'flexStart',
+  justifyContent = 'flex-start',
+  alignItems = 'center',
+  ...rest
 }) => {
+
   const style = {
     display: flex ? 'flex' : 'block',
     flexFlow: flow === 'column' ? 'column nowrap' : 'row nowrap',
     justifyContent: justifyContent,
     alignItems: alignItems,
   };
-  console.log(justifyContent);
+  
   return (
-    <div className={className} style={style}>
+    <div
+      className={className}
+      style={style}
+      {...rest}
+    >
       {children}
     </div>
   );
 };
 
-export default React.memo(Div);
+export default React.memo(FlexBox);
