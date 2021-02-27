@@ -2,6 +2,7 @@
   --bg-color: white;
   --theme-color: rgb(19, 13, 55);
   --border-color: #d6d6d6;
+  --shadow: 0px 8px 16px 0px rgba(222, 222, 222, 1);
 }
 
 .container {
@@ -16,6 +17,7 @@
 }
 
 .bottomNavi {
+  z-index: 3;
   display: flex;
   position: fixed;
   justify-content: space-around;
@@ -58,7 +60,7 @@
 }
 
 .sideBar {
-  z-index: 2;
+  z-index: 4;
   position: absolute;
   top: 0px;
   right: 0px;
@@ -159,7 +161,7 @@
 
 .login,
 .join {
-  z-index: 3;
+  z-index: 5;
   background-color: var(--bg-color);
   transition: 0.5s;
   width: calc(100% - 2rem);
@@ -325,24 +327,60 @@ input {
 
 .poster-wrapper {
   border: 2px solid red;
-  display: flex;
-  flex-flow: row nowrap;
-  overflow-x: auto;
-  margin-bottom: 1rem;
+  margin: 1rem 0rem;
 }
 
+.poster-slick {
+  padding-bottom: 1rem;
+}
 .poster {
   border: 1px solid black;
   list-style: none;
-  min-width: 11rem;
-  width: 11rem;
-  height: 20rem;
+  /* min-width: 11rem; */
+  /* width: 11rem; */
+  /* height: 20rem; */
   border-radius: 0.5rem;
   margin-right: 1rem;
+  -webkit-box-shadow: var(--shadow);
+  -moz-box-shadow: var(--shadow);
+  box-shadow: var(--shadow);
 }
 
 .poster-lookup {
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
+}
+
+.poster-image {
+  width: 100%;
+  height: auto;
+  border-top-left-radius: 0.8rem;
+  border-top-right-radius: 0.8rem;
+}
+
+.poster-movie-info {
+  padding: 1rem;
+  color: gray;
+}
+.poster-movie-info > h4 {
+  margin: 0.4rem 0rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  align-items: ;
+}
+
+.poster-movie-info-ratio {
+  display: flex;
+  align-items: center;
+  flex-flow: row nowrap;
+}
+.poster-bookBtn {
+  border: none;
+  background-color: rgb(85, 182, 199);
+  color: white;
+  font-size: 0.8rem;
+  padding: 0.4rem 1rem;
+  border-radius: 0.5rem;
 }

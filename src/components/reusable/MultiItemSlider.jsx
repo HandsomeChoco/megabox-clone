@@ -1,17 +1,10 @@
 import React from 'react';
 import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
-export default class MultiItemSlider extends React.Component {
-  render(children) {
-    const settings = {
-      dots: true,
-      infinite: false,
-      speed: 500,
-      slidesToShow: 4,
-      slidesToScroll: 1,
-    };
+const MultiItemSlider = ({ children, settings }) => {
+  return <Slider {...settings}>{children}</Slider>;
+};
 
-    return <Slider {...settings}>{children}</Slider>;
-  }
-}
-
+export default React.memo(MultiItemSlider);
