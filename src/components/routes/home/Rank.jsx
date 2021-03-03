@@ -15,20 +15,42 @@ const tags = [
   '필소',
 ];
 
-const settings = {
-  dots: false,
+const posterSettings = {
+  dots: true,
   infinite: false,
   speed: 500,
   slidesToShow: 3,
   slidesToScroll: 3,
   className: 'poster-slicker',
+  responsive: [
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+      },
+    },
+  ],
+};
+
+const hashTagSettings = {
+  dots: false,
+  infinite: false,
+  variableWidth: true,
 };
 
 const HashTag = React.memo(({ text }) => {
   return <span className="hash-tag">{text}</span>;
 });
 
-const Poster = React.memo(({ title, ratio, src, score }) => {
+const Poster = React.memo(({ title, ratio, src, score, onClick, id }) => {
   return (
     <li className="poster">
       <div>
@@ -44,7 +66,9 @@ const Poster = React.memo(({ title, ratio, src, score }) => {
           </span>
         </div>
         <div>
-          <button className="poster-bookBtn">바로예매</button>
+          <button className="poster-bookBtn" onClick={() => onClick(id)}>
+            바로예매
+          </button>
         </div>
       </div>
     </li>
@@ -54,13 +78,15 @@ const Poster = React.memo(({ title, ratio, src, score }) => {
 const Rank = () => {
   return (
     <div className="home-body-rank">
-      {tags.map((tag, index) => (
-        <HashTag text={'#' + tag} key={index} />
-      ))}
+      <MultiItemSlider settings={hashTagSettings}>
+        {tags.map((tag, index) => (
+          <HashTag text={'#' + tag} key={index} className="hash-tag" />
+        ))}
+      </MultiItemSlider>
 
       <div>
         <div className="poster-wrapper">
-          <MultiItemSlider settings={settings}>
+          <MultiItemSlider settings={posterSettings}>
             <Poster
               title="어벤저스: 엔드게임"
               src="/endgame.jpg"
