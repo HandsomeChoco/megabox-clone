@@ -327,6 +327,7 @@ input {
 
 .poster-wrapper {
   margin-top: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .poster {
@@ -340,7 +341,6 @@ input {
   -webkit-box-shadow: var(--shadow);
   -moz-box-shadow: var(--shadow);
   box-shadow: var(--shadow);
-  
 }
 
 .poster-lookup {
@@ -371,9 +371,8 @@ input {
   display: flex;
   align-items: center;
   flex-flow: row nowrap;
-
 }
-.poster-movie-info-ratio > span{
+.poster-movie-info-ratio > span {
   display: inherit;
   align-items: center;
 }
