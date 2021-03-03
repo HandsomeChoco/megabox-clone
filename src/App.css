@@ -13,7 +13,7 @@
     rgba(19, 13, 55, 1) 100%
   );
   width: 100%;
-  height: 100vh;
+  height: calc;
 }
 
 .bottomNavi {
@@ -45,8 +45,12 @@
   color: rgb(0, 183, 212);
 }
 .topNavi {
+  z-index: 3;
+  position: fixed;
   display: flex;
   background-color: var(--theme-color);
+  max-width: 1024px;
+  width: 100%;
   height: 50px;
   align-items: center;
   justify-content: space-between;
@@ -280,7 +284,7 @@ input {
 }
 
 .home {
-  height: calc(100vh - 150px);
+  padding-top: 50px;
   padding-bottom: 50px;
 }
 
