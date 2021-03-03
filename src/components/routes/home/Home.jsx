@@ -38,6 +38,7 @@ const Home = () => {
 
   const result = async () => {
     let result;
+
     try {
       //prettier-ignore
       result = await Axios.get(`http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=${key.privateKey}&targetDt=${getYesterDay()}`);
@@ -46,6 +47,7 @@ const Home = () => {
     }
     return result.data;
   };
+
   result();
 
   useEffect(() => {});
