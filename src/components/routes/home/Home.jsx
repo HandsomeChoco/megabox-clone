@@ -47,6 +47,7 @@ const Home = () => {
     }
     return setState({ ...state, data: state.data.concat(result.data)});
   };
+  
   console.log(state.data)
   useEffect(() => {
     result();
