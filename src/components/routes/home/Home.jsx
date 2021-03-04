@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import Axios from 'axios';
 
 import Story from './Story';
@@ -9,17 +9,36 @@ import Event from './Event';
 import Special from './Special';
 import MoviePost from './MoviePost';
 
-import useNetwork from '../../../hooks/useNetwork';
-
-import getYesterDay from '../../../lib/date';
 import key from '../../../lib/key.json';
-
-// const getDailyBoxOfficeAPI = async () => {
-//   .then(response => response.data);
-//   return result;
-// };
+import CustomContext, {
+  useCustomContextDispatch,
+  useCustomContextState,
+} from '../../../context/CustomContext';
 
 const HomeBody = React.memo(() => {
+  const state = useCustomContextState();
+  const dispatch = useCustomContextDispatch();
+  console.log('HomeBody component rendered!', state);
+
+  const getTrendyMovies = useCallback(async () => {
+    console.log('getTendyMovie function called!');
+    let response;
+    try {
+      //prettier-ignore
+      response = await Axios.get(`https://api.themoviedb.org/3/trending/movie/week?api_key=${key.privateKey}`);
+    } catch (e) {
+      console.error(e);
+    }
+    dispatch({
+      type: 'GET',
+      response,
+    });
+  }, [state.data]);
+
+  useEffect(() => {
+    getTrendyMovies();
+  }, []);
+
   return (
     <div className="home-body">
       <Rank />
@@ -33,31 +52,15 @@ const HomeBody = React.memo(() => {
 });
 
 const Home = () => {
-  const [state, setState] = useNetwork();
   console.log('Home');
 
-  const result = async () => {
-    let result;
-
-    try {
-      //prettier-ignore
-      result = await Axios.get(`http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=${key.privateKey}&targetDt=${getYesterDay()}`);
-    } catch (e) {
-      console.error(e);
-    }
-    return setState({ ...state, data: state.data.concat(result.data)});
-  };
-  
-  console.log(state.data)
-  useEffect(() => {
-    result();
-  }, []);
-
   return (
-    <div className="home">
-      <Story />
-      <HomeBody />
-    </div>
+    <CustomContext>
+      <div className="home">
+        <Story />
+        <HomeBody />
+      </div>
+    </CustomContext>
   );
 };
 

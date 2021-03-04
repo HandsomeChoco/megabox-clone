@@ -4,6 +4,7 @@ import MultiItemSlider from '../../reusable/MultiItemSlider';
 import { AiFillStar } from 'react-icons/ai';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { useCustomContextState } from '../../../context/CustomContext';
 
 const tags = [
   '박스오피스',
@@ -54,7 +55,7 @@ const Poster = React.memo(({ title, ratio, src, score, onClick, id }) => {
   return (
     <li className="poster">
       <div>
-        <img src={`/imgs/${src}`} alt="" className="poster-image" />
+        <img src={src} alt="" className="poster-image" />
       </div>
       <div className="poster-movie-info">
         <h4>{title}</h4>
@@ -76,6 +77,10 @@ const Poster = React.memo(({ title, ratio, src, score, onClick, id }) => {
 });
 
 const Rank = () => {
+  console.log('Home => HomeBody => Rank component rendered!');
+  const state = useCustomContextState();
+  const { data } = state;
+
   return (
     <div className="home-body-rank">
       <MultiItemSlider settings={hashTagSettings}>
@@ -87,30 +92,15 @@ const Rank = () => {
       <div>
         <div className="poster-wrapper">
           <MultiItemSlider settings={posterSettings}>
-            <Poster
-              title="어벤저스: 엔드게임"
-              src="/endgame.jpg"
-              ratio={99.2}
-              score={9.8}
-            />
-            <Poster
-              title="어벤저스: 인피니티 워"
-              src="/infinity-war.jpg"
-              ratio={99.8}
-              score={9.8}
-            />
-            <Poster
-              title="어벤저스: 에이지 오브 울트론 (2015)"
-              src="/AOU.jpg"
-              ratio={99.8}
-              score={9.8}
-            />
-            <Poster />
-            <Poster />
-            <Poster />
-            <Poster />
-            <Poster />
-            <Poster />
+            {data.map((v, i) => (
+              <Poster
+                title={v.original_title}
+                key={i}
+                src={`https://image.tmdb.org/t/p/original${v.poster_path}`}
+                score={v.vote_average}
+                ratio={v.popularity}
+              />
+            ))}
           </MultiItemSlider>
         </div>
 
