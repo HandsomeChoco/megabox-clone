@@ -45,12 +45,13 @@ const Home = () => {
     } catch (e) {
       console.error(e);
     }
-    return result.data;
+    return setState({ ...state, data: state.data.concat(result.data) });
   };
 
-  result();
-
-  useEffect(() => {});
+  console.log(state.data);
+  useEffect(() => {
+    result();
+  }, []);
 
   return (
     <div className="home">
