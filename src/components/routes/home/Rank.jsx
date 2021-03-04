@@ -23,7 +23,7 @@ const posterSettings = {
   slidesToShow: 3,
   slidesToScroll: 3,
   draggable: true,
-  className: 'poster-slicker',
+
   responsive: [
     {
       breakpoint: 480,

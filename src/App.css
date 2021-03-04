@@ -13,6 +13,7 @@
     rgba(19, 13, 55, 1) 100%
   );
   width: 100%;
+  height: calc(100vh - 100px);
 }
 
 .bottomNavi {
@@ -58,9 +59,6 @@
 
 .topNavi > div {
   height: 25px;
-}
-.topNavi > div:nth-child(1) {
-  padding-right: calc(2rem + 1px);
 }
 
 .sideBar {
@@ -347,11 +345,6 @@ input {
   box-shadow: var(--shadow);
 }
 
-@media screen and (max-width: 480px) {
-  .poster {
-    margin-right: 0rem;
-  }
-}
 .poster-lookup {
   display: flex;
   align-items: center;
