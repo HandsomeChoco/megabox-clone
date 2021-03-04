@@ -45,6 +45,7 @@
 }
 .topNavi {
   z-index: 3;
+  top: 0;
   position: fixed;
   display: flex;
   background-color: var(--theme-color);
@@ -346,6 +347,11 @@ input {
   box-shadow: var(--shadow);
 }
 
+@media screen and (max-width: 480px) {
+  .poster {
+    margin-right: 0rem;
+  }
+}
 .poster-lookup {
   display: flex;
   align-items: center;
