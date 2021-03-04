@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useReducer } from 'react';
+import { networkReducer } from './reducer/reducer';
 
 const useNetwork = () => {
-  const [state, setState] = useState({ data: [] });
+  const [state, dispatch] = useReducer(networkReducer, { data: [] });
 
-  return [state, setState];
+  return [state, dispatch];
 };
 
 export default useNetwork;

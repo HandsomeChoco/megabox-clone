@@ -1,3 +1,15 @@
+export const networkReducer = (state, action) => {
+  switch (action.type) {
+    case 'GET':
+      return {
+        ...state,
+        data: state.data.concat(action.response.data.results),
+      };
+    default:
+      throw new Error(`Unhandled action type ${action.type}`);
+  }
+};
+
 const reducer = (state, action) => {
   switch (action.type) {
     case 'TOGGLE_SIDEBAR':
