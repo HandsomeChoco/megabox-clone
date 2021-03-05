@@ -175,7 +175,7 @@
   width: calc(100% - 2rem);
   height: calc(100vh - 2rem);
   padding: 1rem;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   transform-origin: right bottom;
   transform: scaleY(1);
@@ -319,7 +319,6 @@ input {
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
   padding: 1rem;
-  height: calc(100vh -);
 }
 
 .home-body-rank {
@@ -339,11 +338,6 @@ input {
   margin-bottom: 1.5rem;
 }
 
-.poster-explorer {
-  height: 100% !important;
-  border: 1px solid red !important;
-  display: flex;
-}
 .poster {
   list-style: none;
   /* min-width: 11rem; */
