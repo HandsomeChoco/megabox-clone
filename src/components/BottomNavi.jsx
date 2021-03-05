@@ -4,6 +4,7 @@ import { FaTicketAlt } from 'react-icons/fa';
 import { GiPopcorn } from 'react-icons/gi';
 import { BsFillPersonFill } from 'react-icons/bs';
 import React, { useCallback, useMemo, useState } from 'react';
+import { useAppDispatchContext } from '../context/AppContext';
 
 //prettier-ignore
 const itemInfo = [
@@ -38,12 +39,23 @@ const BottomItem = React.memo(({ item, onClick, active, id }) => {
 const BottomNavi = ({ history }) => {
   console.log('bottom navi', history);
   const memoItemInfo = useMemo(() => itemInfo, []);
+
+  const dispatch = useAppDispatchContext();
+
   const [state, setState] = useState({ active: 0 });
   const { active } = state;
 
-  //prettier-ignore
-  const setActive = useCallback(id => 
-    setState(state => ({ ...state, active: id })), []);
+  const setTopNavi = id => {
+    dispatch({
+      type: 'CHANGE_TOP_NAVI_LOGO',
+      url: memoItemInfo[id].url,
+    });
+  };
+
+  const setActive = useCallback(id => {
+    setState(state => ({ ...state, active: id }));
+    setTopNavi(id);
+  }, []);
 
   return (
     <div className="bottomNavi">
