@@ -7,6 +7,7 @@ const AppDispatchContext = React.createContext();
 const initialState = {
   isSideBarHidden: true,
   isLoginWindowHidden: true,
+  isJoinWindowhidden: true,
   topNaviLogo: '',
 };
 

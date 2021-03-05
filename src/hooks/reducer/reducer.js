@@ -22,6 +22,11 @@ const reducer = (state, action) => {
         ...state,
         isLoginWindowHidden: !state.isLoginWindowHidden,
       };
+    case 'TOGGLE_JOIN_WINDOW':
+      return {
+        ...state,
+        isJoinWindowHidden: !state.isJoinWindowHidden,
+      };
     case 'CHANGE_TOP_NAVI_LOGO':
       return {
         ...state,

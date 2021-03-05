@@ -133,7 +133,7 @@ const Login = ({ history }) => {
   const goBack = useCallback(() => {
     toggleLoginWindow();
     // X 버튼 누르면 다시 이전 URL 로 돌아가야 함
-    // history.back();
+    history.goBack();
   }, []);
 
   const sendLoginInfo = useCallback(e => {
