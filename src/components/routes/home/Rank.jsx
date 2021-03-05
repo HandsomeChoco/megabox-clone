@@ -17,13 +17,11 @@ const tags = [
 ];
 
 const posterSettings = {
-  dots: true,
   infinite: false,
   speed: 500,
   slidesToShow: 3,
   slidesToScroll: 3,
-  draggable: true,
-
+  lazyLoad: true,
   responsive: [
     {
       breakpoint: 480,
@@ -95,13 +93,17 @@ const Rank = () => {
           <MultiItemSlider settings={posterSettings}>
             {data.map((v, i) => (
               <Poster
-                title={v.original_title}
+                id={i}
                 key={i}
+                title={v.original_title}
                 src={`https://image.tmdb.org/t/p/original${v.poster_path}`}
                 score={v.vote_average}
                 ratio={v.popularity}
               />
             ))}
+            <div className="poster-explore">
+              <div>더보기</div>
+            </div>
           </MultiItemSlider>
         </div>
 
