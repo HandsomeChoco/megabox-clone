@@ -290,8 +290,8 @@ input {
 
 .home {
   padding-top: 50px;
-  border: 1px solid salmon;
 }
+
 .home-story-wrapper {
   display: flex;
   width: calc(100% - 2rem);

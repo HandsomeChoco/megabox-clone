@@ -2,6 +2,7 @@ import React from 'react';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 import MultiItemSlider from '../../reusable/MultiItemSlider';
 import { AiFillStar } from 'react-icons/ai';
+import { BsPlusCircle } from 'react-icons/bs';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useCustomContextState } from '../../../context/CustomContext';
@@ -16,12 +17,18 @@ const tags = [
   '필소',
 ];
 
+const HideArrow = React.memo(() => {
+  return <div></div>;
+});
+
 const posterSettings = {
   infinite: false,
   speed: 500,
   slidesToShow: 3,
   slidesToScroll: 3,
   lazyLoad: true,
+  nextArrow: <HideArrow />,
+  prevArrow: <HideArrow />,
   responsive: [
     {
       breakpoint: 480,
@@ -44,6 +51,8 @@ const hashTagSettings = {
   dots: false,
   infinite: false,
   variableWidth: true,
+  nextArrow: <HideArrow />,
+  prevArrow: <HideArrow />,
 };
 
 const HashTag = React.memo(({ text }) => {
@@ -75,6 +84,19 @@ const Poster = React.memo(({ title, ratio, src, score, onClick, id }) => {
   );
 });
 
+const SeeMore = React.memo(() => {
+  return (
+    <div className="poster-explore">
+      <div>
+        <span>
+          <BsPlusCircle />
+        </span>
+        <span>더 보기</span>
+      </div>
+    </div>
+  );
+});
+
 const Rank = () => {
   console.log('Home => HomeBody => Rank component rendered!');
   const state = useCustomContextState();
@@ -98,15 +120,12 @@ const Rank = () => {
                 title={v.original_title}
                 src={`https://image.tmdb.org/t/p/original${v.poster_path}`}
                 score={v.vote_average}
-                ratio={v.popularity}
+                ratio={(v.popularity / 100).toFixed(2)}
               />
             ))}
-            <div className="poster-explore">
-              <div>더보기</div>
-            </div>
+            <SeeMore />
           </MultiItemSlider>
         </div>
-
         <div className="poster-lookup">
           더 많은 영화보기 <MdKeyboardArrowRight />
         </div>
