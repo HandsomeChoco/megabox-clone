@@ -22,7 +22,11 @@ const reducer = (state, action) => {
         ...state,
         isLoginWindowHidden: !state.isLoginWindowHidden,
       };
-
+    case 'CHANGE_TOP_NAVI_LOGO':
+      return {
+        ...state,
+        topNaviLogo: action.url,
+      };
     default:
       throw new Error(`Unhandled action type: ${action.type}`);
   }

@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { RiTicket2Line } from 'react-icons/ri';
 import { AiOutlineBell } from 'react-icons/ai';
 import { GoThreeBars } from 'react-icons/go';
-import { useAppDispatchContext } from '../context/AppContext';
+import {
+  useAppDispatchContext,
+  useAppStateContext,
+} from '../context/AppContext';
 
 const iconStyle = {
   color: 'white',
@@ -11,12 +14,40 @@ const iconStyle = {
 
 const TopNavi = () => {
   console.log('TopNavi');
+  const state = useAppStateContext();
   const dispatch = useAppDispatchContext();
+
   const toggleSideBar = () => {
     dispatch({
       type: 'TOGGLE_SIDEBAR',
     });
   };
+
+  const topNaviRender = useCallback(() => {
+    console.log(`topNaviRender has been called!`);
+    const color = { color: 'white' };
+
+    switch (state.topNaviLogo) {
+      case '':
+        return (
+          <img src="megabox.jpg" style={{ height: 25 }} alt="메가박스 로고" />
+        );
+      case 'store':
+        return <span style={color}>스토어</span>;
+
+      case 'booking':
+        return <span style={color}>예매</span>;
+
+      case 'mobile_order':
+        return <span style={color}>모바일오더</span>;
+
+      case 'my':
+        return <span style={color}>나의 메가박스</span>;
+
+      default:
+        return <span style={color}>error</span>; // 좋은 생각 같지 않은데... 딱히 떠오르는 더 좋은 방법이 없다
+    }
+  }, [state.topNaviLogo]);
 
   return (
     <div className="topNavi">
@@ -26,9 +57,7 @@ const TopNavi = () => {
         </span>
       </div>
       <div>
-        <span>
-          <img src="megabox.jpg" style={{ height: 25 }} alt="메가박스 로고" />
-        </span>
+        <span>{topNaviRender()}</span>
       </div>
       <div>
         <span>
