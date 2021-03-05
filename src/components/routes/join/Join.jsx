@@ -1,5 +1,6 @@
 import Axios from 'axios';
 import React, { useCallback, useEffect } from 'react';
+import { useAppDispatchContext } from '../../../context/AppContext';
 import useInputs from '../../../hooks/useInputs';
 import Form from '../../reusable/Form';
 import Input from '../../reusable/Input';
@@ -18,7 +19,9 @@ const initState = {
 };
 
 const Join = ({ history }) => {
-  console.log('join component', history);
+  console.log('join component');
+  const dispatch = useAppDispatchContext();
+
   //eslint-disable-next-line
   const [state, onChange, onToggle, setInputState] = useInputs(initState);
   const {
@@ -61,13 +64,24 @@ const Join = ({ history }) => {
       }
     },[state]);
 
+  const toggleLoginWindow = useCallback(() => {
+    dispatch({
+      type: 'TOGGLE_JOIN_WINDOW',
+    });
+  }, []);
+
+  const goBack = useCallback(() => {
+    toggleLoginWindow();
+    // X 버튼 누르면 다시 이전 URL 로 돌아가야 함
+    history.goBack();
+  }, []);
   useEffect(() => {
     // 중복 체크 및 입력값 유효성 검사는 여기서
   }, []);
 
   return (
     <div className="join">
-      <Top text="회원가입" />
+      <Top text="회원가입" goBack={goBack} />
       <Form className="join-form">
         <Input
           placeholder="생년월일"

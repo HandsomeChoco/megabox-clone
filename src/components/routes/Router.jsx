@@ -11,6 +11,7 @@ const Join = React.lazy(() => import('./join/Join'));
 
 /* <Route component={Component}/> 로 작성하면
   같은 버튼을 눌렀을 때 리렌더링이 일어남. 이렇게 작성하니 그렇지 않음.
+  그런데, history 를 쓸수가 없구나...
 */
 
 const Router = () => {
@@ -37,13 +38,8 @@ const Router = () => {
           <My />
         </Route>
 
-        <Route path="/login" exact={true}>
-          <Login />
-        </Route>
-
-        <Route path="/join" exact={true}>
-          <Join />
-        </Route>
+        <Route path="/login" exact={true} component={Login} />
+        <Route path="/join" exact={true} component={Join} />
       </Suspense>
     </>
   );
