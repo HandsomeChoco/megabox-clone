@@ -15,7 +15,7 @@
     rgba(19, 13, 55, 1) 100%
   );
   width: 100%;
-  height: calc(100vh - 100px);
+  height: calc(100vh);
 }
 
 .bottomNavi {
@@ -169,13 +169,14 @@
 
 .login,
 .join {
+  border: 1px solid pink;
   z-index: 5;
   background-color: var(--bg-color);
   transition: 0.5s;
   width: calc(100% - 2rem);
   height: calc(100vh - 2rem);
   padding: 1rem;
-  position: fixed;
+  position: absolute;
   bottom: 0;
   transform-origin: right bottom;
   transform: scaleY(1);
@@ -289,9 +290,8 @@ input {
 
 .home {
   padding-top: 50px;
-  padding-bottom: 50px;
+  border: 1px solid salmon;
 }
-
 .home-story-wrapper {
   display: flex;
   width: calc(100% - 2rem);
